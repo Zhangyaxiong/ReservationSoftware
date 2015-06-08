@@ -1,0 +1,443 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		69E14EDB1B219ADD005988CD /* RotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E14EDA1B219ADD005988CD /* RotViewController.m */; };
+		69E1AE321B1D470E007DF947 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E1AE311B1D470E007DF947 /* main.m */; };
+		69E1AE351B1D470E007DF947 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E1AE341B1D470E007DF947 /* AppDelegate.m */; };
+		69E1AE381B1D470E007DF947 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E1AE371B1D470E007DF947 /* ViewController.m */; };
+		69E1AE3B1B1D470E007DF947 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69E1AE391B1D470E007DF947 /* Main.storyboard */; };
+		69E1AE3D1B1D470E007DF947 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69E1AE3C1B1D470E007DF947 /* Images.xcassets */; };
+		69E1AE401B1D470E007DF947 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69E1AE3E1B1D470E007DF947 /* LaunchScreen.xib */; };
+		69E1AE4C1B1D470E007DF947 /* Reservation_softwareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E1AE4B1B1D470E007DF947 /* Reservation_softwareTests.m */; };
+		69E1AE571B1D544F007DF947 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E1AE561B1D544F007DF947 /* TableViewCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		69E1AE461B1D470E007DF947 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69E1AE241B1D470E007DF947 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69E1AE2B1B1D470E007DF947;
+			remoteInfo = "Reservation software";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		69E14ED91B219ADD005988CD /* RotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotViewController.h; sourceTree = "<group>"; };
+		69E14EDA1B219ADD005988CD /* RotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotViewController.m; sourceTree = "<group>"; };
+		69E1AE2C1B1D470E007DF947 /* Reservation software.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reservation software.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		69E1AE301B1D470E007DF947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69E1AE311B1D470E007DF947 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		69E1AE331B1D470E007DF947 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		69E1AE341B1D470E007DF947 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		69E1AE361B1D470E007DF947 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		69E1AE371B1D470E007DF947 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		69E1AE3A1B1D470E007DF947 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		69E1AE3C1B1D470E007DF947 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		69E1AE3F1B1D470E007DF947 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		69E1AE451B1D470E007DF947 /* Reservation softwareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Reservation softwareTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		69E1AE4A1B1D470E007DF947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69E1AE4B1B1D470E007DF947 /* Reservation_softwareTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Reservation_softwareTests.m; sourceTree = "<group>"; };
+		69E1AE551B1D544F007DF947 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		69E1AE561B1D544F007DF947 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		69E1AE291B1D470E007DF947 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69E1AE421B1D470E007DF947 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		69E1AE231B1D470E007DF947 = {
+			isa = PBXGroup;
+			children = (
+				69E14ED91B219ADD005988CD /* RotViewController.h */,
+				69E14EDA1B219ADD005988CD /* RotViewController.m */,
+				69E1AE551B1D544F007DF947 /* TableViewCell.h */,
+				69E1AE561B1D544F007DF947 /* TableViewCell.m */,
+				69E1AE2E1B1D470E007DF947 /* Reservation software */,
+				69E1AE481B1D470E007DF947 /* Reservation softwareTests */,
+				69E1AE2D1B1D470E007DF947 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		69E1AE2D1B1D470E007DF947 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				69E1AE2C1B1D470E007DF947 /* Reservation software.app */,
+				69E1AE451B1D470E007DF947 /* Reservation softwareTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		69E1AE2E1B1D470E007DF947 /* Reservation software */ = {
+			isa = PBXGroup;
+			children = (
+				69E1AE331B1D470E007DF947 /* AppDelegate.h */,
+				69E1AE341B1D470E007DF947 /* AppDelegate.m */,
+				69E1AE361B1D470E007DF947 /* ViewController.h */,
+				69E1AE371B1D470E007DF947 /* ViewController.m */,
+				69E1AE391B1D470E007DF947 /* Main.storyboard */,
+				69E1AE3C1B1D470E007DF947 /* Images.xcassets */,
+				69E1AE3E1B1D470E007DF947 /* LaunchScreen.xib */,
+				69E1AE2F1B1D470E007DF947 /* Supporting Files */,
+			);
+			path = "Reservation software";
+			sourceTree = "<group>";
+		};
+		69E1AE2F1B1D470E007DF947 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				69E1AE301B1D470E007DF947 /* Info.plist */,
+				69E1AE311B1D470E007DF947 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		69E1AE481B1D470E007DF947 /* Reservation softwareTests */ = {
+			isa = PBXGroup;
+			children = (
+				69E1AE4B1B1D470E007DF947 /* Reservation_softwareTests.m */,
+				69E1AE491B1D470E007DF947 /* Supporting Files */,
+			);
+			path = "Reservation softwareTests";
+			sourceTree = "<group>";
+		};
+		69E1AE491B1D470E007DF947 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				69E1AE4A1B1D470E007DF947 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		69E1AE2B1B1D470E007DF947 /* Reservation software */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69E1AE4F1B1D470E007DF947 /* Build configuration list for PBXNativeTarget "Reservation software" */;
+			buildPhases = (
+				69E1AE281B1D470E007DF947 /* Sources */,
+				69E1AE291B1D470E007DF947 /* Frameworks */,
+				69E1AE2A1B1D470E007DF947 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Reservation software";
+			productName = "Reservation software";
+			productReference = 69E1AE2C1B1D470E007DF947 /* Reservation software.app */;
+			productType = "com.apple.product-type.application";
+		};
+		69E1AE441B1D470E007DF947 /* Reservation softwareTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69E1AE521B1D470E007DF947 /* Build configuration list for PBXNativeTarget "Reservation softwareTests" */;
+			buildPhases = (
+				69E1AE411B1D470E007DF947 /* Sources */,
+				69E1AE421B1D470E007DF947 /* Frameworks */,
+				69E1AE431B1D470E007DF947 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				69E1AE471B1D470E007DF947 /* PBXTargetDependency */,
+			);
+			name = "Reservation softwareTests";
+			productName = "Reservation softwareTests";
+			productReference = 69E1AE451B1D470E007DF947 /* Reservation softwareTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		69E1AE241B1D470E007DF947 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "张亚雄";
+				TargetAttributes = {
+					69E1AE2B1B1D470E007DF947 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					69E1AE441B1D470E007DF947 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 69E1AE2B1B1D470E007DF947;
+					};
+				};
+			};
+			buildConfigurationList = 69E1AE271B1D470E007DF947 /* Build configuration list for PBXProject "Reservation software" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 69E1AE231B1D470E007DF947;
+			productRefGroup = 69E1AE2D1B1D470E007DF947 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				69E1AE2B1B1D470E007DF947 /* Reservation software */,
+				69E1AE441B1D470E007DF947 /* Reservation softwareTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		69E1AE2A1B1D470E007DF947 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69E1AE3B1B1D470E007DF947 /* Main.storyboard in Resources */,
+				69E1AE401B1D470E007DF947 /* LaunchScreen.xib in Resources */,
+				69E1AE3D1B1D470E007DF947 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69E1AE431B1D470E007DF947 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		69E1AE281B1D470E007DF947 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69E14EDB1B219ADD005988CD /* RotViewController.m in Sources */,
+				69E1AE381B1D470E007DF947 /* ViewController.m in Sources */,
+				69E1AE571B1D544F007DF947 /* TableViewCell.m in Sources */,
+				69E1AE351B1D470E007DF947 /* AppDelegate.m in Sources */,
+				69E1AE321B1D470E007DF947 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69E1AE411B1D470E007DF947 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69E1AE4C1B1D470E007DF947 /* Reservation_softwareTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		69E1AE471B1D470E007DF947 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69E1AE2B1B1D470E007DF947 /* Reservation software */;
+			targetProxy = 69E1AE461B1D470E007DF947 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		69E1AE391B1D470E007DF947 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69E1AE3A1B1D470E007DF947 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		69E1AE3E1B1D470E007DF947 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69E1AE3F1B1D470E007DF947 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		69E1AE4D1B1D470E007DF947 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		69E1AE4E1B1D470E007DF947 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		69E1AE501B1D470E007DF947 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Reservation software/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		69E1AE511B1D470E007DF947 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Reservation software/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		69E1AE531B1D470E007DF947 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Reservation softwareTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reservation software.app/Reservation software";
+			};
+			name = Debug;
+		};
+		69E1AE541B1D470E007DF947 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Reservation softwareTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reservation software.app/Reservation software";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		69E1AE271B1D470E007DF947 /* Build configuration list for PBXProject "Reservation software" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69E1AE4D1B1D470E007DF947 /* Debug */,
+				69E1AE4E1B1D470E007DF947 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69E1AE4F1B1D470E007DF947 /* Build configuration list for PBXNativeTarget "Reservation software" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69E1AE501B1D470E007DF947 /* Debug */,
+				69E1AE511B1D470E007DF947 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69E1AE521B1D470E007DF947 /* Build configuration list for PBXNativeTarget "Reservation softwareTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69E1AE531B1D470E007DF947 /* Debug */,
+				69E1AE541B1D470E007DF947 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 69E1AE241B1D470E007DF947 /* Project object */;
+}
