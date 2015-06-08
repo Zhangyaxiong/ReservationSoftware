@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		69E14EDB1B219ADD005988CD /* RotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E14EDA1B219ADD005988CD /* RotViewController.m */; };
 		69E1AE321B1D470E007DF947 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E1AE311B1D470E007DF947 /* main.m */; };
 		69E1AE351B1D470E007DF947 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E1AE341B1D470E007DF947 /* AppDelegate.m */; };
 		69E1AE381B1D470E007DF947 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E1AE371B1D470E007DF947 /* ViewController.m */; };
@@ -15,7 +14,7 @@
 		69E1AE3D1B1D470E007DF947 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69E1AE3C1B1D470E007DF947 /* Images.xcassets */; };
 		69E1AE401B1D470E007DF947 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69E1AE3E1B1D470E007DF947 /* LaunchScreen.xib */; };
 		69E1AE4C1B1D470E007DF947 /* Reservation_softwareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E1AE4B1B1D470E007DF947 /* Reservation_softwareTests.m */; };
-		69E1AE571B1D544F007DF947 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E1AE561B1D544F007DF947 /* TableViewCell.m */; };
+		69E3B4131B256E8600199E0A /* OrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E3B4121B256E8600199E0A /* OrderViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,8 +28,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		69E14ED91B219ADD005988CD /* RotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotViewController.h; sourceTree = "<group>"; };
-		69E14EDA1B219ADD005988CD /* RotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotViewController.m; sourceTree = "<group>"; };
 		69E1AE2C1B1D470E007DF947 /* Reservation software.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reservation software.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69E1AE301B1D470E007DF947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69E1AE311B1D470E007DF947 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -44,8 +41,8 @@
 		69E1AE451B1D470E007DF947 /* Reservation softwareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Reservation softwareTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69E1AE4A1B1D470E007DF947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69E1AE4B1B1D470E007DF947 /* Reservation_softwareTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Reservation_softwareTests.m; sourceTree = "<group>"; };
-		69E1AE551B1D544F007DF947 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
-		69E1AE561B1D544F007DF947 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		69E3B4111B256E8600199E0A /* OrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderViewController.h; sourceTree = "<group>"; };
+		69E3B4121B256E8600199E0A /* OrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,10 +66,8 @@
 		69E1AE231B1D470E007DF947 = {
 			isa = PBXGroup;
 			children = (
-				69E14ED91B219ADD005988CD /* RotViewController.h */,
-				69E14EDA1B219ADD005988CD /* RotViewController.m */,
-				69E1AE551B1D544F007DF947 /* TableViewCell.h */,
-				69E1AE561B1D544F007DF947 /* TableViewCell.m */,
+				69E3B4111B256E8600199E0A /* OrderViewController.h */,
+				69E3B4121B256E8600199E0A /* OrderViewController.m */,
 				69E1AE2E1B1D470E007DF947 /* Reservation software */,
 				69E1AE481B1D470E007DF947 /* Reservation softwareTests */,
 				69E1AE2D1B1D470E007DF947 /* Products */,
@@ -229,11 +224,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69E14EDB1B219ADD005988CD /* RotViewController.m in Sources */,
 				69E1AE381B1D470E007DF947 /* ViewController.m in Sources */,
-				69E1AE571B1D544F007DF947 /* TableViewCell.m in Sources */,
 				69E1AE351B1D470E007DF947 /* AppDelegate.m in Sources */,
 				69E1AE321B1D470E007DF947 /* main.m in Sources */,
+				69E3B4131B256E8600199E0A /* OrderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

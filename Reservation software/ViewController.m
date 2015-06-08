@@ -5,13 +5,12 @@
 //  Created by 张亚雄 on 15/6/2.
 //  Copyright (c) 2015年 张亚雄. All rights reserved.
 //
-#import "RotViewController.h"
+
 #import "ViewController.h"
 @interface ViewController ()
 @end
 
 @implementation ViewController
-
 
 - (void)viewDidLoad
 {
@@ -27,6 +26,11 @@
     
     [self create_button: width :@selector(order_button_pressed:) :100 :@"帮订餐"];
     [self create_button: width :@selector(look_up_ordered_restaurant:) :150 :@"看订餐"];
+    
+    
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [self.navigationItem setBackBarButtonItem:backItem];
+    self.navigationItem.backBarButtonItem = backItem;
 }
 
 
@@ -45,10 +49,13 @@
 
 -(void)order_button_pressed:(id)sender
 {
-    UIViewController *viewController = [[UIViewController alloc]init];
-    viewController.view.backgroundColor = [UIColor whiteColor];
-    [self.navigationController pushViewController:viewController animated:YES];
-   
+//    UIViewController *viewController = [[UIViewController alloc]init];
+//    viewController.view.backgroundColor = [UIColor whiteColor];
+//    [viewController.view addSubview:[self createLabel]];
+//    [self.navigationController pushViewController:viewController animated:YES];
+    
+     OrderViewController *order = [[OrderViewController alloc]init];
+     [self.navigationController pushViewController:order animated:YES];
 }
     
     
@@ -60,9 +67,6 @@
     viewController.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:viewController animated:YES];
 
-    
-    
-    
 }
 
 @end
