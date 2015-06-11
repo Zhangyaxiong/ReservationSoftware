@@ -29,13 +29,19 @@
 {
     double width = self.view.frame.size.width;
     UILabel *pane = [[UILabel alloc]initWithFrame:CGRectMake(width/15,70, 13*width/15,44)];
+    
+    
+    
+    
     pane.text = number;
+    
     [self.view addSubview:pane];
     
     
     pane.layer.cornerRadius = 10.0;
     pane.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     pane.layer.borderWidth = 1;
+    
     return pane;
 }
 
@@ -93,9 +99,18 @@
     
 
 }
+-(void)getChoosePeopelNotifaction:(NSNotification *)aNotifaction
+{
+    
+    m_nameLabel.text = aNotifaction.object;
+
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getChoosePeopelNotifaction:) name:@"notfactionName" object:nil];
     
     self.navigationItem.title = @"看订餐";
     
@@ -103,11 +118,12 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     self.navigationController.navigationBar.translucent = NO;
-    
+   
     
     // Do any additional setup after loading the view.
+    
     [self createLabel:@"人："];
-    [self createSelectLabelWithBorder :@""];
+    m_nameLabel = [self createSelectLabelWithBorder :@""];
     [self createLabelWithate:@"餐厅："];
     [self createSelectLabelWithBordernext:@""];
     [self createWithComboEat:@"套餐:"];
