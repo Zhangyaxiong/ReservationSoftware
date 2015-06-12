@@ -8,7 +8,8 @@
 
 #import "OrderViewController.h"
 #import "ChoosePeopleViewController.h"
-
+#import "ResrveForRestaurant.h"
+#import "ChooseCombo.h"
 @interface OrderViewController ()
 
 @end
@@ -101,16 +102,27 @@
 }
 -(void)getChoosePeopelNotifaction:(NSNotification *)aNotifaction
 {
-    
+//    选人反馈的通知
     m_nameLabel.text = aNotifaction.object;
+}
+-(void)getResrveRorRestaurant:(NSNotification *)bNotifaction
+{
+//选餐厅反馈的通知
 
-    
+    r_resrveLabel.text = bNotifaction.object;
+}
+-(void)getChooseCobmoNotifaction:(NSNotification *)cNotifaction
+{
+//    选套餐反馈的通知
+    c_cobmoLabel.text = cNotifaction.object;
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+//    通知函数
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getChoosePeopelNotifaction:) name:@"notfactionName" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getResrveRorRestaurant:) name:@"notfactionReare" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector (getChooseCobmoNotifaction:)name:@"notfactionCobmo" object:nil];
     
     self.navigationItem.title = @"看订餐";
     
@@ -125,9 +137,9 @@
     [self createLabel:@"人："];
     m_nameLabel = [self createSelectLabelWithBorder :@""];
     [self createLabelWithate:@"餐厅："];
-    [self createSelectLabelWithBordernext:@""];
+    r_resrveLabel = [self createSelectLabelWithBordernext:@""];
     [self createWithComboEat:@"套餐:"];
-    [self createWithBordeThree:@""];
+    c_cobmoLabel = [self createWithBordeThree:@""];
 //    按钮‘选人’
     UIButton *candidates = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     double width = self.view.frame.size.width;
@@ -142,6 +154,12 @@
     [self.view addSubview:candidates];
 //   ” 固定的“
     [candidates addTarget:self action:@selector(choosePeopleButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+//   返回button‘s及text.
+    
+    UIBarButtonItem *backItemReservationEat = [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    backItemReservationEat.tintColor = [UIColor whiteColor];
+    [self.navigationItem setBackBarButtonItem:backItemReservationEat];
+    
 
        
     
@@ -157,6 +175,9 @@
     restaurant.backgroundColor = [UIColor colorWithRed:230.0/255 green:230.0/255 blue:230.0/255 alpha:1];
     restaurant.layer.masksToBounds = YES;
     [self.view addSubview:restaurant];
+//    push到另外一个页面"固定用法"
+    [restaurant addTarget:self action:@selector(ResrveForRestaurantButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
 //   按钮“选套餐”
     UIButton *chooseEat = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     
@@ -169,6 +190,13 @@
      chooseEat.backgroundColor = [UIColor colorWithRed:235.0/255 green:235.0/255 blue:235.0/255 alpha:1];
      chooseEat.layer.masksToBounds = YES;
     [self.view addSubview:chooseEat];
+    
+    [chooseEat addTarget:self action:@selector(ChooseCobmoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+
+
+   
+//    确定按钮
+    
     UIButton *ensure = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     
     ensure.frame = CGRectMake(width/15,520, 13*width/15,44);
@@ -182,12 +210,22 @@
     [self.view addSubview:ensure];
 
 }
+//设置了一个选人按钮寄主。
 -(void)choosePeopleButtonPressed:(id)sender
 {
     ChoosePeopleViewController *choosePeople = [[ChoosePeopleViewController alloc]init];
     [self.navigationController pushViewController:choosePeople animated:YES];
 
 }
-
+-(void)ResrveForRestaurantButtonPressed:(id)senderForChooseRestaurant
+{
+    ResrveForRestaurant *ChooseRestaurant = [[ResrveForRestaurant alloc]init];
+    [self.navigationController pushViewController:ChooseRestaurant animated:YES];
+}
+-(void)ChooseCobmoButtonPressed:(id)senderForChooseCobmo
+{
+    ChooseCombo *ChooseCobmo = [[ChooseCombo alloc]init];
+    [self.navigationController pushViewController:ChooseCobmo animated:YES];
+}
 @end
 

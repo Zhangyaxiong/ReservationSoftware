@@ -43,9 +43,7 @@
     self.title = @"订餐";
     // Do any additional setup after loading the view.
      [self drawTableView];
-    UIBarButtonItem *backItem1 = [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStylePlain target:nil action:nil];
-    backItem1.tintColor = [UIColor whiteColor];
-    [self.navigationItem setBackBarButtonItem:backItem1];
+   
     
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView//显示章节数

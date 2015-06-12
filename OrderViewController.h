@@ -11,6 +11,8 @@
 @interface OrderViewController : UIViewController
 {
     UILabel *m_nameLabel;
+    UILabel *r_resrveLabel;
+    UILabel *c_cobmoLabel;
 }
 
 @end

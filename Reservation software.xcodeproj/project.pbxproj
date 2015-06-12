@@ -15,6 +15,8 @@
 		69E1AE401B1D470E007DF947 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69E1AE3E1B1D470E007DF947 /* LaunchScreen.xib */; };
 		69E1AE4C1B1D470E007DF947 /* Reservation_softwareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E1AE4B1B1D470E007DF947 /* Reservation_softwareTests.m */; };
 		69E3B4131B256E8600199E0A /* OrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E3B4121B256E8600199E0A /* OrderViewController.m */; };
+		69F57F4F1B2A7914000048FF /* ResrveForRestaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F57F4E1B2A7914000048FF /* ResrveForRestaurant.m */; };
+		69F57F521B2ACF71000048FF /* ChooseCombo.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F57F511B2ACF71000048FF /* ChooseCombo.m */; };
 		69FACC9C1B26D54F0087E709 /* ChoosePeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FACC9B1B26D54F0087E709 /* ChoosePeopleViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +46,10 @@
 		69E1AE4B1B1D470E007DF947 /* Reservation_softwareTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Reservation_softwareTests.m; sourceTree = "<group>"; };
 		69E3B4111B256E8600199E0A /* OrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderViewController.h; sourceTree = "<group>"; };
 		69E3B4121B256E8600199E0A /* OrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderViewController.m; sourceTree = "<group>"; };
+		69F57F4D1B2A7914000048FF /* ResrveForRestaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResrveForRestaurant.h; sourceTree = "<group>"; };
+		69F57F4E1B2A7914000048FF /* ResrveForRestaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResrveForRestaurant.m; sourceTree = "<group>"; };
+		69F57F501B2ACF71000048FF /* ChooseCombo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseCombo.h; sourceTree = "<group>"; };
+		69F57F511B2ACF71000048FF /* ChooseCombo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseCombo.m; sourceTree = "<group>"; };
 		69FACC9A1B26D54F0087E709 /* ChoosePeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePeopleViewController.h; sourceTree = "<group>"; };
 		69FACC9B1B26D54F0087E709 /* ChoosePeopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoosePeopleViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +75,10 @@
 		69E1AE231B1D470E007DF947 = {
 			isa = PBXGroup;
 			children = (
+				69F57F501B2ACF71000048FF /* ChooseCombo.h */,
+				69F57F511B2ACF71000048FF /* ChooseCombo.m */,
+				69F57F4D1B2A7914000048FF /* ResrveForRestaurant.h */,
+				69F57F4E1B2A7914000048FF /* ResrveForRestaurant.m */,
 				69FACC9A1B26D54F0087E709 /* ChoosePeopleViewController.h */,
 				69FACC9B1B26D54F0087E709 /* ChoosePeopleViewController.m */,
 				69E3B4111B256E8600199E0A /* OrderViewController.h */,
@@ -229,11 +239,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69F57F521B2ACF71000048FF /* ChooseCombo.m in Sources */,
 				69FACC9C1B26D54F0087E709 /* ChoosePeopleViewController.m in Sources */,
 				69E1AE381B1D470E007DF947 /* ViewController.m in Sources */,
 				69E1AE351B1D470E007DF947 /* AppDelegate.m in Sources */,
 				69E1AE321B1D470E007DF947 /* main.m in Sources */,
 				69E3B4131B256E8600199E0A /* OrderViewController.m in Sources */,
+				69F57F4F1B2A7914000048FF /* ResrveForRestaurant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
