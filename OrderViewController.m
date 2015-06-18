@@ -202,14 +202,24 @@
     ensure.frame = CGRectMake(width/15,520, 13*width/15,44);
     
     [ensure setTitle:@"确定" forState:UIControlStateNormal];
+    [ensure addTarget:self action:@selector(showAlertView) forControlEvents:UIControlEventTouchUpInside];
     ensure.layer.cornerRadius = 10.0f;
     ensure.layer.borderWidth = 1.0;
     ensure.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    ensure.backgroundColor = [UIColor colorWithRed:235.0/255 green:235.0/255 blue:235.0/255 alpha:1];
+   ensure.backgroundColor = [UIColor colorWithRed:235.0/255 green:235.0/255 blue:235.0/255 alpha:1];
+    
     ensure.layer.masksToBounds = YES;
+    
+    
     [self.view addSubview:ensure];
-
+    
 }
+-(void)showAlertView
+
+{   UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"订餐大师" message:@"是否订购本套餐" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alertView show];
+}
+
 //设置了一个选人按钮寄主。
 -(void)choosePeopleButtonPressed:(id)sender
 {
