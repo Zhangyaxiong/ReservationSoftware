@@ -28,7 +28,7 @@
     
     [self.view addSubview:tableviewRestaurant];
     
-    NSArray *arrayRest = [[NSArray alloc]initWithObjects:@"KFC",@"MDL",@"JZ", nil];
+    NSArray *arrayRest = [[NSArray alloc]initWithObjects:@"KFC",@"MDL",@"星巴克", nil];
     
     resrveArray  = arrayRest;
     

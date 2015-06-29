@@ -30,7 +30,7 @@
     
     [self.view addSubview:tableview];
     
-    NSArray *array = [[NSArray alloc]initWithObjects:@"许嵩",@"周杰伦",@"梁静茹",@"许飞",@"凤凰传奇",@"阿杜",@"方大同",@"林俊杰",@"胡夏",@"邱永传", nil];
+    NSArray *array = [[NSArray alloc]initWithObjects:@"许嵩",@"周杰伦",@"梁静茹",@"许飞", nil];
     
     nameArray  = array;
     

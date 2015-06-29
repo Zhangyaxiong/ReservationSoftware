@@ -15,6 +15,14 @@
 @implementation ChooseCombo
 @synthesize ComboArray;
 @synthesize tableviewCombo;
+-(id)initWithDataArray :(NSArray *)comboArray
+{
+    self = [super init];
+    if (self) {
+        ComboArray = comboArray;
+    }
+    return self ;
+}
 
 -(void)presentationTableview
 {
@@ -26,9 +34,9 @@
     
     [self.view addSubview:tableviewCombo];
    
-    NSArray *ArrayC = [[NSArray alloc]initWithObjects:@"小吃",@"中餐",@"西餐", nil];
-    
-    ComboArray  = ArrayC;
+//    NSArray *ArrayC = [[NSArray alloc]initWithObjects:@"小吃",@"中餐",@"西餐", nil];
+//    
+//    ComboArray  = ArrayC;
     
 
     

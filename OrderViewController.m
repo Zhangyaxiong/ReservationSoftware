@@ -177,6 +177,10 @@
     [self.view addSubview:restaurant];
 //    push到另外一个页面"固定用法"
     [restaurant addTarget:self action:@selector(ResrveForRestaurantButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+//    33333333
+    NSArray *arrPeopele = [[NSArray alloc]initWithObjects:@"KFC",@"MDL",@"星巴克", nil];
+    
+    r_dicResrveLabel = [[NSDictionary alloc]initWithObjectsAndKeys:arrPeopele,@"许嵩",arrPeopele,@"周杰伦",arrPeopele,@"梁静茹",arrPeopele,@"许飞",nil];
     
 //   按钮“选套餐”
     UIButton *chooseEat = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -192,9 +196,12 @@
     [self.view addSubview:chooseEat];
     
     [chooseEat addTarget:self action:@selector(ChooseCobmoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-
-
-   
+//  11111111111111111
+    NSArray *arrKFC = [[NSArray alloc]initWithObjects:@"超值多人餐",@"美味汉堡", nil];
+    NSArray *arrMDL = [[NSArray alloc]initWithObjects:@"脆香油条",@"圣代", nil];
+    NSArray *arrxbk = [[NSArray alloc]initWithObjects:@"麦香奶茶", @"胜利茶",nil];
+    m_dicComboData =[[NSDictionary alloc]initWithObjectsAndKeys:arrKFC,@"KFC",arrMDL,@"MDL",arrxbk,@"星巴克",nil];
+    
 //    确定按钮
     
     UIButton *ensure = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -213,6 +220,10 @@
     
     [self.view addSubview:ensure];
     
+    
+    
+
+    
 }
 -(void)showAlertView
 
@@ -228,14 +239,21 @@
 
 }
 -(void)ResrveForRestaurantButtonPressed:(id)senderForChooseRestaurant
+
 {
+    
     ResrveForRestaurant *ChooseRestaurant = [[ResrveForRestaurant alloc]init];
     [self.navigationController pushViewController:ChooseRestaurant animated:YES];
 }
 -(void)ChooseCobmoButtonPressed:(id)senderForChooseCobmo
 {
-    ChooseCombo *ChooseCobmo = [[ChooseCombo alloc]init];
-    [self.navigationController pushViewController:ChooseCobmo animated:YES];
+   
+//  字典要显示的内容根。
+    
+    NSArray *cobomArray = [m_dicComboData objectForKey:r_resrveLabel.text];
+
+    ChooseCombo *chooseCobmo = [[ChooseCombo alloc]initWithDataArray:cobomArray];
+    [self.navigationController pushViewController:chooseCobmo animated:YES];
 }
 @end
 

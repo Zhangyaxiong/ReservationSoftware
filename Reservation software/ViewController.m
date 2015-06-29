@@ -31,8 +31,34 @@
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStylePlain target:nil action:nil];
     backItem.tintColor = [UIColor whiteColor];
     [self.navigationItem setBackBarButtonItem:backItem];
-     
+//    沙盒运用测试
+//    NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES)objectAtIndex:0];
+//    documentPath = [documentPath stringByAppendingPathComponent:@"订餐大师"];
+//    NSLog(@"%@", documentPath);
+//    写入文件
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
+    NSString *docDir = [paths objectAtIndex:0];
+    if(!docDir)
+    {
+        NSLog(@"Douments 目录未找到");
+    }
+   
+    NSArray *array = [[NSArray alloc]initWithObjects:@"内容",@"content", nil];
     
+    NSString *filePath = [docDir stringByAppendingPathComponent:@"testFile.txt"];
+    
+     [array writeToFile:filePath atomically:YES];
+  
+//   读取文件
+//    NSArray  *paths  =  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+    
+//    NSString *docDir = [paths objectAtIndex:0];
+    
+//    NSString *filePath = [docDir stringByAppendingPathComponent:@"testFile.txt"];
+    
+//    NSArray *array = [[NSArray alloc] initWithContentsOfFile:filePath];
+    
+//    NSLog(@"%@",array);
 }
 
 
@@ -68,6 +94,7 @@
     UIViewController *viewController = [[UIViewController alloc]init];
     viewController.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:viewController animated:YES];
+    
 
 }
 

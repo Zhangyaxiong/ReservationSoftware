@@ -13,6 +13,8 @@
     UILabel *m_nameLabel;
     UILabel *r_resrveLabel;
     UILabel *c_cobmoLabel;
+    NSDictionary *m_dicComboData;
+    NSDictionary *r_dicResrveLabel;
 }
 
 @end

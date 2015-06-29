@@ -20,4 +20,6 @@
 @property(strong,nonatomic)NSArray *ComboArray;
 
 
+-(id)initWithDataArray :(NSArray *)ComboArray;
+
 @end
