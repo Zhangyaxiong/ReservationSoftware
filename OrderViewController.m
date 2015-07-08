@@ -132,7 +132,7 @@
     self.navigationController.navigationBar.translucent = NO;
    
     
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view. 通知按钮指针push过程。
     
     [self createLabel:@"人："];
     m_nameLabel = [self createSelectLabelWithBorder :@""];
@@ -209,28 +209,55 @@
     ensure.frame = CGRectMake(width/15,520, 13*width/15,44);
     
     [ensure setTitle:@"确定" forState:UIControlStateNormal];
-    [ensure addTarget:self action:@selector(showAlertView) forControlEvents:UIControlEventTouchUpInside];
+    
+    [ensure addTarget:self action:@selector(showAlertView:) forControlEvents:UIControlEventTouchUpInside];
     ensure.layer.cornerRadius = 10.0f;
     ensure.layer.borderWidth = 1.0;
     ensure.layer.borderColor = [UIColor lightGrayColor].CGColor;
-   ensure.backgroundColor = [UIColor colorWithRed:235.0/255 green:235.0/255 blue:235.0/255 alpha:1];
+    ensure.backgroundColor = [UIColor colorWithRed:235.0/255 green:235.0/255 blue:235.0/255 alpha:1];
     
     ensure.layer.masksToBounds = YES;
     
     
+   
+   
     [self.view addSubview:ensure];
     
     
-    
-
+}
+-(void)showAlertView :(id)sender
+{
+    if(![m_nameLabel.text isEqualToString: @""] && ![r_resrveLabel.text  isEqualToString: @""] && ![c_cobmoLabel.text  isEqualToString: @""])
+    {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        //获取沙盒中Documents文件的路径
+        NSString *str_file_path = [paths objectAtIndex:0];
+        //将自己想创建的文件名添加到Documents录后，拼成一整个字符串
+        NSString *str_data_file_path = [str_file_path stringByAppendingPathComponent:@"order.plist"];
+        
+        NSDictionary *dic = [[NSDictionary alloc]initWithObjectsAndKeys:m_nameLabel.text,@"name",r_resrveLabel.text,@"restaurant",c_cobmoLabel.text,@"combo", nil];
+        
+        
+        NSMutableArray *array_order = [[NSMutableArray alloc]initWithContentsOfFile:str_data_file_path];
+        if (array_order == nil) {
+            array_order = [[NSMutableArray alloc]initWithCapacity:0];
+        }
+        
+        [array_order addObject:dic];
+        BOOL is_save_success = [array_order writeToFile:str_data_file_path atomically:YES];
+        if (is_save_success == true)
+        {
+            [(UIButton *)sender setEnabled:NO];
+            
+        }
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示信息" message:@"用户输入不完整，订餐失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+    }
     
 }
--(void)showAlertView
-
-{   UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"订餐大师" message:@"是否订购本套餐" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-    [alertView show];
-}
-
 //设置了一个选人按钮寄主。
 -(void)choosePeopleButtonPressed:(id)sender
 {
@@ -253,7 +280,10 @@
     NSArray *cobomArray = [m_dicComboData objectForKey:r_resrveLabel.text];
 
     ChooseCombo *chooseCobmo = [[ChooseCombo alloc]initWithDataArray:cobomArray];
+    
     [self.navigationController pushViewController:chooseCobmo animated:YES];
+
 }
+
 @end
 

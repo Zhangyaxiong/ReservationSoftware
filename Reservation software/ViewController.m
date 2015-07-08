@@ -31,11 +31,7 @@
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStylePlain target:nil action:nil];
     backItem.tintColor = [UIColor whiteColor];
     [self.navigationItem setBackBarButtonItem:backItem];
-//    沙盒运用测试
-//    NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES)objectAtIndex:0];
-//    documentPath = [documentPath stringByAppendingPathComponent:@"订餐大师"];
-//    NSLog(@"%@", documentPath);
-//    写入文件
+
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
     NSString *docDir = [paths objectAtIndex:0];
     if(!docDir)
@@ -49,16 +45,6 @@
     
      [array writeToFile:filePath atomically:YES];
   
-//   读取文件
-//    NSArray  *paths  =  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
-    
-//    NSString *docDir = [paths objectAtIndex:0];
-    
-//    NSString *filePath = [docDir stringByAppendingPathComponent:@"testFile.txt"];
-    
-//    NSArray *array = [[NSArray alloc] initWithContentsOfFile:filePath];
-    
-//    NSLog(@"%@",array);
 }
 
 
@@ -77,24 +63,14 @@
 
 -(void)order_button_pressed:(id)sender
 {
-//    UIViewController *viewController = [[UIViewController alloc]init];
-//    viewController.view.backgroundColor = [UIColor whiteColor];
-//    [viewController.view addSubview:[self createLabel]];
-//    [self.navigationController pushViewController:viewController animated:YES];
-    
      OrderViewController *order = [[OrderViewController alloc]init];
      [self.navigationController pushViewController:order animated:YES];
 }
-    
-    
-
 
 - (void)look_up_ordered_restaurant :(id)sender
 {
-    UIViewController *viewController = [[UIViewController alloc]init];
-    viewController.view.backgroundColor = [UIColor whiteColor];
-    [self.navigationController pushViewController:viewController animated:YES];
-    
+    FindOrderTableViewController *find_order = [[FindOrderTableViewController alloc]init];
+    [self.navigationController pushViewController:find_order animated:YES];
 
 }
 

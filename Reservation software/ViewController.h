@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "OrderViewController.h"
+#import "FindOrderTableViewController.h"
 
 @interface ViewController : UIViewController
 

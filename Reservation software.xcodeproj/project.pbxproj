@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		69A085101B4BAC0B00944BE8 /* FindOrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A0850F1B4BAC0B00944BE8 /* FindOrderTableViewController.m */; };
 		69E1AE321B1D470E007DF947 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E1AE311B1D470E007DF947 /* main.m */; };
 		69E1AE351B1D470E007DF947 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E1AE341B1D470E007DF947 /* AppDelegate.m */; };
 		69E1AE381B1D470E007DF947 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E1AE371B1D470E007DF947 /* ViewController.m */; };
@@ -31,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		69A0850E1B4BAC0B00944BE8 /* FindOrderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindOrderTableViewController.h; sourceTree = "<group>"; };
+		69A0850F1B4BAC0B00944BE8 /* FindOrderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindOrderTableViewController.m; sourceTree = "<group>"; };
 		69E1AE2C1B1D470E007DF947 /* Reservation software.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reservation software.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69E1AE301B1D470E007DF947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69E1AE311B1D470E007DF947 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -72,7 +75,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		69E1AE231B1D470E007DF947 = {
+		69A085111B4BCBC700944BE8 /* help_order */ = {
 			isa = PBXGroup;
 			children = (
 				69F57F501B2ACF71000048FF /* ChooseCombo.h */,
@@ -83,6 +86,24 @@
 				69FACC9B1B26D54F0087E709 /* ChoosePeopleViewController.m */,
 				69E3B4111B256E8600199E0A /* OrderViewController.h */,
 				69E3B4121B256E8600199E0A /* OrderViewController.m */,
+			);
+			name = help_order;
+			sourceTree = "<group>";
+		};
+		69A085121B4BCC0000944BE8 /* look_order */ = {
+			isa = PBXGroup;
+			children = (
+				69A0850E1B4BAC0B00944BE8 /* FindOrderTableViewController.h */,
+				69A0850F1B4BAC0B00944BE8 /* FindOrderTableViewController.m */,
+			);
+			name = look_order;
+			sourceTree = "<group>";
+		};
+		69E1AE231B1D470E007DF947 = {
+			isa = PBXGroup;
+			children = (
+				69A085121B4BCC0000944BE8 /* look_order */,
+				69A085111B4BCBC700944BE8 /* help_order */,
 				69E1AE2E1B1D470E007DF947 /* Reservation software */,
 				69E1AE481B1D470E007DF947 /* Reservation softwareTests */,
 				69E1AE2D1B1D470E007DF947 /* Products */,
@@ -244,6 +265,7 @@
 				69E1AE381B1D470E007DF947 /* ViewController.m in Sources */,
 				69E1AE351B1D470E007DF947 /* AppDelegate.m in Sources */,
 				69E1AE321B1D470E007DF947 /* main.m in Sources */,
+				69A085101B4BAC0B00944BE8 /* FindOrderTableViewController.m in Sources */,
 				69E3B4131B256E8600199E0A /* OrderViewController.m in Sources */,
 				69F57F4F1B2A7914000048FF /* ResrveForRestaurant.m in Sources */,
 			);
