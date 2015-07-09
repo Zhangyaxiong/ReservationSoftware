@@ -29,8 +29,10 @@
     NSString *str_data_file_path = [str_file_path stringByAppendingPathComponent:@"order.plist"];
     NSArray *array_data_source = [[NSArray alloc]initWithContentsOfFile:str_data_file_path];
     return array_data_source;
+    
 }
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -38,26 +40,32 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return m_arr_data_source.count;
 }
 
-/*
- - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
- UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
- 
- // Configure the cell...
- 
- return cell;
- }
- */
+
+ - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *showUserInfoCellIdentifier = @"已定人员";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:showUserInfoCellIdentifier];
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:showUserInfoCellIdentifier];
+    }
+    
+    NSDictionary *dic_info = [m_arr_data_source objectAtIndex:indexPath.row];
+    cell.textLabel.text = [dic_info objectForKey:@"combo"];
+    cell.detailTextLabel.text = [dic_info objectForKey:@"restaurant"];
+    
+    return cell;
+}
+
 
 /*
  // Override to support conditional editing of the table view.
@@ -67,17 +75,16 @@
  }
  */
 
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
+
+//
+// - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+// if (editingStyle == UITableViewCellEditingStyleDelete)
+// {
+//     
+// [tableView deleteRowsAtIndexPaths:@[m_arr_data_source] withRowAnimation:UITableViewRowAnimationFade];
+// } else if (editingStyle == UITableViewCellEditingStyleDelete)
+
 
 /*
  // Override to support rearranging the table view.

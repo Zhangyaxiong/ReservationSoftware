@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FindOrderTableViewController : UITableViewController
+@interface FindOrderTableViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource>
 {
     NSArray *m_arr_data_source;
 }
