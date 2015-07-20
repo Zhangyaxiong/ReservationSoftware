@@ -91,7 +91,9 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellCombo];
         
     }
-    cell.textLabel.text = [ComboArray objectAtIndex:[indexPath row]];
+    int row = (int)indexPath.row;
+    cell.textLabel.text = [[ComboArray objectAtIndex:row]objectForKey:@"name"];
+    cell.detailTextLabel.text = [[ComboArray objectAtIndex:row]objectForKey:@"price"];
     cell.textLabel.numberOfLines = 10;
     cell.textLabel.font = [UIFont systemFontOfSize:20];
     cell.textLabel.textColor = [UIColor blueColor];
@@ -100,7 +102,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *titleStringCobmo =[ComboArray objectAtIndex:[indexPath row]];
+    NSDictionary *titleStringCobmo =[ComboArray objectAtIndex:[indexPath row]];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"notfactionCobmo" object:titleStringCobmo userInfo:nil];
     [self. navigationController popViewControllerAnimated:YES];
 }

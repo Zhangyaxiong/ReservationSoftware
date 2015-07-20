@@ -11,10 +11,12 @@
 @interface OrderViewController : UIViewController
 {
     UILabel *m_nameLabel;
-    UILabel *r_resrveLabel;
-    UILabel *c_cobmoLabel;
+    UILabel *m_resrveLabel;
+    UILabel *m_cobmoLabel;
     NSDictionary *m_dicComboData;
-    NSDictionary *r_dicResrveLabel;
+    NSDictionary *m_dicResrveLabel;
+    NSString *m_strprice;
+    UILabel *N_nameLabel;
 }
 
 @end

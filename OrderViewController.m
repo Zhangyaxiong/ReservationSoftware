@@ -109,12 +109,14 @@
 {
 //选餐厅反馈的通知
 
-    r_resrveLabel.text = bNotifaction.object;
+    m_resrveLabel.text = bNotifaction.object;
 }
 -(void)getChooseCobmoNotifaction:(NSNotification *)cNotifaction
 {
+    NSDictionary *dicCobmo = cNotifaction.object;
 //    选套餐反馈的通知
-    c_cobmoLabel.text = cNotifaction.object;
+    m_cobmoLabel.text = [dicCobmo objectForKey:@"name"];
+    m_strprice = [dicCobmo objectForKey:@"price"];
 }
 - (void)viewDidLoad
 {
@@ -137,9 +139,9 @@
     [self createLabel:@"人："];
     m_nameLabel = [self createSelectLabelWithBorder :@""];
     [self createLabelWithate:@"餐厅："];
-    r_resrveLabel = [self createSelectLabelWithBordernext:@""];
+    m_resrveLabel = [self createSelectLabelWithBordernext:@""];
     [self createWithComboEat:@"套餐:"];
-    c_cobmoLabel = [self createWithBordeThree:@""];
+    m_cobmoLabel = [self createWithBordeThree:@""];
 //    按钮‘选人’
     UIButton *candidates = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     double width = self.view.frame.size.width;
@@ -180,7 +182,7 @@
 //    33333333
     NSArray *arrPeopele = [[NSArray alloc]initWithObjects:@"KFC",@"MDL",@"星巴克", nil];
     
-    r_dicResrveLabel = [[NSDictionary alloc]initWithObjectsAndKeys:arrPeopele,@"许嵩",arrPeopele,@"周杰伦",arrPeopele,@"梁静茹",arrPeopele,@"许飞",nil];
+    m_dicResrveLabel = [[NSDictionary alloc]initWithObjectsAndKeys:arrPeopele,@"许嵩",arrPeopele,@"周杰伦",arrPeopele,@"梁静茹",arrPeopele,@"许飞",nil];
     
 //   按钮“选套餐”
     UIButton *chooseEat = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -197,10 +199,29 @@
     
     [chooseEat addTarget:self action:@selector(ChooseCobmoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 //  11111111111111111
-    NSArray *arrKFC = [[NSArray alloc]initWithObjects:@"超值多人餐",@"美味汉堡", nil];
-    NSArray *arrMDL = [[NSArray alloc]initWithObjects:@"脆香油条",@"圣代", nil];
-    NSArray *arrxbk = [[NSArray alloc]initWithObjects:@"麦香奶茶", @"胜利茶",nil];
-    m_dicComboData =[[NSDictionary alloc]initWithObjectsAndKeys:arrKFC,@"KFC",arrMDL,@"MDL",arrxbk,@"星巴克",nil];
+ 
+    NSDictionary *dicKFC1 = [[NSDictionary alloc]initWithObjectsAndKeys:@"超值多人餐",@"name",@"￥20",@"price" ,nil];
+    NSDictionary *dicKFC2= [[NSDictionary alloc]initWithObjectsAndKeys:@"美味汉堡",@"name",@"￥11",@"price", nil];
+    NSArray *arrKFC = [[NSArray alloc]initWithObjects:dicKFC1,dicKFC2,nil];
+    
+    
+  
+    NSDictionary *dicMDL1 = [[NSDictionary alloc]initWithObjectsAndKeys:@"脆香油条",@"name",@"￥10",@"price", nil];
+    NSDictionary *dicMDL2 =[[NSDictionary alloc]initWithObjectsAndKeys:@"圣代",@"name",@"￥8",@"price",nil];
+    NSArray *arrMDL = [[NSArray alloc]initWithObjects:dicMDL1,dicMDL2 ,nil];
+
+  
+    
+  
+    
+    NSDictionary *dicXbk1 = [[NSDictionary alloc]initWithObjectsAndKeys:@"奶茶",@"name",@"￥8",@"price", nil];
+    NSDictionary *dicXbk2 = [[NSDictionary alloc]initWithObjectsAndKeys:@"胜利茶",@"name",@"￥12",@"price",nil];
+    NSArray *arrXbc =[[NSArray alloc]initWithObjects:dicXbk1,dicXbk2,nil];
+    
+    
+
+    m_dicComboData =[[NSDictionary alloc]initWithObjectsAndKeys:arrKFC,@"KFC",arrMDL,@"MDL",arrXbc,@"星巴克",nil];
+
     
 //    确定按钮
     
@@ -227,22 +248,23 @@
 }
 -(void)showAlertView :(id)sender
 {
-    if(![m_nameLabel.text isEqualToString: @""] && ![r_resrveLabel.text  isEqualToString: @""] && ![c_cobmoLabel.text  isEqualToString: @""])
+    if(![m_nameLabel.text isEqualToString: @""] && ![m_resrveLabel.text  isEqualToString: @""] && ![m_cobmoLabel.text  isEqualToString: @""]&&![N_nameLabel.text isEqualToString:@""])
     {
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         //获取沙盒中Documents文件的路径
         NSString *str_file_path = [paths objectAtIndex:0];
         //将自己想创建的文件名添加到Documents录后，拼成一整个字符串
         NSString *str_data_file_path = [str_file_path stringByAppendingPathComponent:@"order.plist"];
+        //        初始化字典
+        NSDictionary *dic = [[NSDictionary alloc]initWithObjectsAndKeys:m_nameLabel.text,@"name",m_resrveLabel.text,@"restaurant",m_cobmoLabel.text,@"combo",m_strprice,@"price",N_nameLabel.text,@"noName",nil];
         
-        NSDictionary *dic = [[NSDictionary alloc]initWithObjectsAndKeys:m_nameLabel.text,@"name",r_resrveLabel.text,@"restaurant",c_cobmoLabel.text,@"combo", nil];
-        
-        
+        //     zhi xing zhe lu jing
         NSMutableArray *array_order = [[NSMutableArray alloc]initWithContentsOfFile:str_data_file_path];
-        if (array_order == nil) {
+        if (array_order == nil)
+        {
             array_order = [[NSMutableArray alloc]initWithCapacity:0];
         }
-        
+    
         [array_order addObject:dic];
         BOOL is_save_success = [array_order writeToFile:str_data_file_path atomically:YES];
         if (is_save_success == true)
@@ -277,7 +299,7 @@
    
 //  字典要显示的内容根。
     
-    NSArray *cobomArray = [m_dicComboData objectForKey:r_resrveLabel.text];
+    NSArray *cobomArray = [m_dicComboData objectForKey:m_resrveLabel.text];
 
     ChooseCombo *chooseCobmo = [[ChooseCombo alloc]initWithDataArray:cobomArray];
     

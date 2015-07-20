@@ -32,7 +32,7 @@
     backItem.tintColor = [UIColor whiteColor];
     [self.navigationItem setBackBarButtonItem:backItem];
 
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docDir = [paths objectAtIndex:0];
     if(!docDir)
     {
@@ -45,6 +45,13 @@
     
      [array writeToFile:filePath atomically:YES];
   
+    NSArray *nameArray = [[NSArray alloc] initWithObjects:@"高嵩",@"周杰伦",@"梁静茹",@"许飞",nil];
+    
+    NSString *filePathName = [docDir stringByAppendingPathComponent:@"nameFile.plist"];
+    
+    [nameArray writeToFile:filePathName atomically:YES];
+    
+
 }
 
 
@@ -69,9 +76,14 @@
 
 - (void)look_up_ordered_restaurant :(id)sender
 {
-    FindOrderTableViewController *find_order = [[FindOrderTableViewController alloc]init];
+    FindOrderTableViewController *find_order = [[FindOrderTableViewController alloc]initWithStyle:UITableViewStyleGrouped];
     [self.navigationController pushViewController:find_order animated:YES];
 
 }
+
+
+
+    
+
 
 @end
