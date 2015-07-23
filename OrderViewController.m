@@ -200,22 +200,22 @@
     [chooseEat addTarget:self action:@selector(ChooseCobmoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 //  11111111111111111
  
-    NSDictionary *dicKFC1 = [[NSDictionary alloc]initWithObjectsAndKeys:@"超值多人餐",@"name",@"￥20",@"price" ,nil];
-    NSDictionary *dicKFC2= [[NSDictionary alloc]initWithObjectsAndKeys:@"美味汉堡",@"name",@"￥11",@"price", nil];
+    NSDictionary *dicKFC1 = [[NSDictionary alloc]initWithObjectsAndKeys:@"超值多人餐",@"name",@"20",@"price",@"￥",@"money",nil];
+    NSDictionary *dicKFC2= [[NSDictionary alloc]initWithObjectsAndKeys:@"美味汉堡",@"name",@"11",@"price", nil];
     NSArray *arrKFC = [[NSArray alloc]initWithObjects:dicKFC1,dicKFC2,nil];
     
     
   
-    NSDictionary *dicMDL1 = [[NSDictionary alloc]initWithObjectsAndKeys:@"脆香油条",@"name",@"￥10",@"price", nil];
-    NSDictionary *dicMDL2 =[[NSDictionary alloc]initWithObjectsAndKeys:@"圣代",@"name",@"￥8",@"price",nil];
+    NSDictionary *dicMDL1 = [[NSDictionary alloc]initWithObjectsAndKeys:@"脆香油条",@"name",@"10",@"price", nil];
+    NSDictionary *dicMDL2 =[[NSDictionary alloc]initWithObjectsAndKeys:@"圣代",@"name",@"8",@"price",@"￥",@"money",nil];
     NSArray *arrMDL = [[NSArray alloc]initWithObjects:dicMDL1,dicMDL2 ,nil];
 
   
     
   
     
-    NSDictionary *dicXbk1 = [[NSDictionary alloc]initWithObjectsAndKeys:@"奶茶",@"name",@"￥8",@"price", nil];
-    NSDictionary *dicXbk2 = [[NSDictionary alloc]initWithObjectsAndKeys:@"胜利茶",@"name",@"￥12",@"price",nil];
+    NSDictionary *dicXbk1 = [[NSDictionary alloc]initWithObjectsAndKeys:@"奶茶",@"name",@"8",@"price", nil];
+    NSDictionary *dicXbk2 = [[NSDictionary alloc]initWithObjectsAndKeys:@"胜利茶",@"name",@"12",@"price",@"￥",@"money",nil];
     NSArray *arrXbc =[[NSArray alloc]initWithObjects:dicXbk1,dicXbk2,nil];
     
     

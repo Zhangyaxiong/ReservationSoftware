@@ -45,7 +45,7 @@
     
      [array writeToFile:filePath atomically:YES];
   
-    NSArray *nameArray = [[NSArray alloc] initWithObjects:@"高嵩",@"周杰伦",@"梁静茹",@"许飞",nil];
+    NSArray *nameArray = [[NSArray alloc] initWithObjects:@"许嵩",@"周杰伦",@"梁静茹",@"许飞",nil];
     
     NSString *filePathName = [docDir stringByAppendingPathComponent:@"nameFile.plist"];
     

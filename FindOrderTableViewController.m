@@ -22,18 +22,61 @@
     [super viewDidLoad];
     m_arr_data_source = [self read_file_from_path:@"order.plist"];
     m_arr_data_source2 = [self read_file_from_path:@"nameFile.plist"];
-
-
-}
+    
+//  for 循环如果i内容为1组，i行数为自动换行数
+    for (int i = 0; i < m_arr_data_source.count; i++)
+    {
+//   提取已定套餐内容
+        NSDictionary *orderinfo = [m_arr_data_source objectAtIndex:i];
+//        从已定套餐内容里提起name
+        NSString *strName = [orderinfo objectForKey:@"name"];
+//      for循环变量j内容为1组，j行数为自动换行数
+        for (int j = 0; j < m_arr_data_source2.count; j++)
+        {
+//从未定套餐中名字中提取内容
+            NSString *name = [m_arr_data_source2 objectAtIndex:j];
+//            对比strName与name的不同内容
+            if ([strName isEqualToString:name])
+            {
+//                减去相同的内容
+                [m_arr_data_source2 removeObject:name];
+//                结束
+                break;
+            }
+        }
+    }
+    double sum_price = 0;
+//    用for循环提取k的自动行数
+    for (int k = 0; k < m_arr_data_source.count; k++)
+    {
+//    提取已定套餐显示的内容
+        NSDictionary *priceinfo = [m_arr_data_source objectAtIndex:k];
+//        从已定套餐内容提取想要显示的价位值
+        NSString *strprice = [priceinfo objectForKey:@"price"];
+        double double_price = strprice.doubleValue;
+        
+        sum_price = sum_price + double_price;
+        
+      
+    }
+//   声明一个lable把sum_price 放到lable里。
+    UILabel *label1 = [[UILabel alloc]initWithFrame:CGRectMake(320, -20, 160, 30)];
+    label1.backgroundColor = [UIColor blackColor];
+    label1.text = [[NSString alloc]initWithFormat:@"%f",sum_price];
+    label1.font = [UIFont fontWithName:@"Arial" size:30];
+    label1.textAlignment = NSTextAlignmentRight;
+    label1.textColor = [UIColor clearColor];
+    label1.adjustsFontSizeToFitWidth = YES;
+    }
 //沙盒
-- (NSArray *)read_file_from_path:(NSString *)fileName
+- (NSMutableArray *)read_file_from_path:(NSString *)fileName
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     //获取沙盒中Documents文件的路径
     NSString *str_file_path = [paths objectAtIndex:0];
     //将自己想创建的文件名添加到Documents录后，拼成一整个字符串
     NSString *str_data_file_path = [str_file_path stringByAppendingPathComponent:fileName];
-    NSArray *array_data_source = [[NSArray alloc]initWithContentsOfFile:str_data_file_path];
+    NSMutableArray *array_data_source = [[NSMutableArray alloc]initWithContentsOfFile:str_data_file_path];
     return array_data_source;
     
 }
@@ -101,6 +144,7 @@
 
 
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+
 {
     //    声明静态字符串型对象，用来标记重用单元格
     static NSString *CellIdentifier = @"cells";
@@ -120,12 +164,24 @@
     {
         //    获取当前行信息值
         NSUInteger row = [indexPath row];
+//        获取当价钱前值的行数
+        NSString *str_price = [[m_arr_data_source objectAtIndex:row]objectForKey:@"price"];
+//        将价钱值类型转换成double类型，
+        double d_price = str_price.doubleValue ;
+//        将价钱值作比较大于11的数显示为红色。
+        if (d_price > 11.00)
+        {
+            cell.price_text_label.textColor = [UIColor redColor];
+        }
+       
         //    name txte label = [[ sha he shu ju yuan zhong lei zhi yin ] yin yong zi dian nei ming cheng]
         cell.name_text_label.text = [[m_arr_data_source objectAtIndex:row]objectForKey:@"name"];
-        cell.price_text_label.text = [[m_arr_data_source objectAtIndex:row]objectForKey:@"price"];
+        cell.price_text_label.text = str_price;
         cell.restaurant_text_label.text = [[m_arr_data_source objectAtIndex:row]objectForKey:@"restaurant"];
         cell.combo_text_label.text = [[m_arr_data_source objectAtIndex:row]objectForKey:@"combo"];
+        cell.money_text_label.text = [[m_arr_data_source objectAtIndex:row]objectForKey:@"money"];
     }
+    
     if (indexPath.section == 1)
     {
         cell.textLabel.text = [m_arr_data_source2 objectAtIndex:indexPath.row];

@@ -20,6 +20,7 @@
         self.combo_text_label=[[UILabel alloc]initWithFrame:CGRectMake(60,12 , 100, 80)];
         self.restaurant_text_label = [[UILabel alloc]initWithFrame:CGRectMake(10, 12, 60, 80)];
         self.price_text_label = [[UILabel alloc]initWithFrame:CGRectMake(320, 20, (self.frame.size.width - 160), 30)];
+        self.money_text_label = [[UILabel alloc]initWithFrame:CGRectMake(320, 20, (self.frame.size.width - 130), 30)];
         self.name_text_label.font = [UIFont boldSystemFontOfSize:20.0f];
         self.combo_text_label.font =[UIFont boldSystemFontOfSize:15.0f];
         self.restaurant_text_label.font = [UIFont boldSystemFontOfSize:15.0f];
@@ -27,7 +28,7 @@
         [self addSubview:self.combo_text_label];
         [self addSubview:self.restaurant_text_label];
         [self addSubview:self.price_text_label];
-        
+        [self addSubview:self.money_text_label];
     }
     return self;
 }
