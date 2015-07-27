@@ -60,13 +60,14 @@
       
     }
 //   声明一个lable把sum_price 放到lable里。
-    UILabel *label1 = [[UILabel alloc]initWithFrame:CGRectMake(320, -20, 160, 30)];
+    UILabel *label1 = [[UILabel alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-73, self.view.frame.size.width, 30)];
     label1.backgroundColor = [UIColor blackColor];
-    label1.text = [[NSString alloc]initWithFormat:@"%f",sum_price];
+    label1.text = [[NSString alloc]initWithFormat:@"总计%.2f元",sum_price];
     label1.font = [UIFont fontWithName:@"Arial" size:30];
-    label1.textAlignment = NSTextAlignmentRight;
-    label1.textColor = [UIColor clearColor];
+    label1.textAlignment = NSTextAlignmentCenter;
+    label1.textColor = [UIColor whiteColor];
     label1.adjustsFontSizeToFitWidth = YES;
+    [self.view addSubview:label1];
     }
 //沙盒
 - (NSMutableArray *)read_file_from_path:(NSString *)fileName
