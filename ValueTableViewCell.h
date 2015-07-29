@@ -14,5 +14,5 @@
 @property(nonatomic,retain)UILabel *name_text_label;
 @property(nonatomic,retain)UILabel *combo_text_label;
 @property(nonatomic,retain)UILabel *restaurant_text_label;
-@property(nonatomic,retain)UILabel *money_text_label;
+
 @end

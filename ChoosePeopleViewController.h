@@ -14,12 +14,10 @@
     
     UITableView *tableview;
     
-    NSArray *nameArray; //创建个数组来放我们的数据
+    NSArray *nameArray; 
     
  }
 
-@property (strong,nonatomic)UITableView *tableview;
 
-@property (strong,nonatomic)NSArray *nameArray;
 
 @end

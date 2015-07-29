@@ -10,12 +10,12 @@
 
 @interface ChooseCombo : UITableViewController<UITableViewDataSource,UITableViewDelegate>
 {
-    UITableView *tableviewCombo;
+//    UITableView *tableviewCombo;
     
     NSArray *ComboArray;
 }
 
-@property(strong,nonatomic)UITableView *tableviewCombo;
+//@property(strong,nonatomic)UITableView *tableviewCombo;
 
 @property(strong,nonatomic)NSArray *ComboArray;
 

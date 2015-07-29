@@ -9,23 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface OrderViewController : UIViewController
-
  {
-   
     UILabel *m_nameLabel;
-    
     UILabel *m_resrveLabel;
-    
     UILabel *m_cobmoLabel;
-    
     NSDictionary *m_dicComboData;
-    
     NSDictionary *m_dicResrveLabel;
-    
     NSString *m_strprice;
-    
-    UILabel *N_nameLabel;
-     
  }
 
 @end

@@ -15,46 +15,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
 //  设置导航菜单名称
     self.navigationItem.title = @"订餐";
     [self.navigationController.navigationBar setBarTintColor:[UIColor blackColor]];
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil]];
-    
 //    设置宽为全屏
     double width = self.view.frame.size.width;
 //    设置字体大小
     [self create_button: width :@selector(order_button_pressed:) :90 :@"帮订餐"];
     [self create_button: width :@selector(look_up_ordered_restaurant:) :150 :@"看订餐"];
-    
 //  设置返回页面
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStylePlain target:nil action:nil];
     backItem.tintColor = [UIColor whiteColor];
     [self.navigationItem setBackBarButtonItem:backItem];
-
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docDir = [paths objectAtIndex:0];
     if(!docDir)
     {
         NSLog(@"Douments 目录未找到");
     }
-   
     NSArray *array = [[NSArray alloc]initWithObjects:@"内容",@"content", nil];
-    
     NSString *filePath = [docDir stringByAppendingPathComponent:@"testFile.txt"];
-    
-     [array writeToFile:filePath atomically:YES];
-  
+    [array writeToFile:filePath atomically:YES];
     NSArray *nameArray = [[NSArray alloc] initWithObjects:@"许嵩",@"周杰伦",@"梁静茹",@"许飞",nil];
-    
     NSString *filePathName = [docDir stringByAppendingPathComponent:@"nameFile.plist"];
-    
     [nameArray writeToFile:filePathName atomically:YES];
-    
-
 }
-
-
 - (UIButton *)create_button :(double)width :(SEL)btn_pressed :(double)y :(NSString *)title
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -67,23 +53,15 @@
     [self.view addSubview:button];
     return button;
 }
-
 -(void)order_button_pressed:(id)sender
 {
      OrderViewController *order = [[OrderViewController alloc]init];
      [self.navigationController pushViewController:order animated:YES];
 }
-
 - (void)look_up_ordered_restaurant :(id)sender
 {
     FindOrderTableViewController *find_order = [[FindOrderTableViewController alloc]initWithStyle:UITableViewStyleGrouped];
     [self.navigationController pushViewController:find_order animated:YES];
-
 }
-
-
-
-    
-
 
 @end

@@ -20,56 +20,64 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    获取沙盒内的文件
+     //    获取沙盒内的文件
     m_arr_data_source = [self read_file_from_path:@"order.plist"];
     m_arr_data_sources = [self read_file_from_path:@"nameFile.plist"];
+    double sum_price = [self get_ordered_sum_price];
+    [self creat_label_price:sum_price];
     
-//  for 循环如果i内容为1组，i行数为自动换行数
+}
+-(double)get_ordered_sum_price
+{
+    //  for 循环如果i内容为1组，i行数为自动换行数
     for (int i = 0; i < m_arr_data_source.count; i++)
     {
-//   提取已定套餐内容
+        //   提取已定套餐内容
         NSDictionary *orderinfo = [m_arr_data_source objectAtIndex:i];
-//        从已定套餐内容里提起name
+        //        从已定套餐内容里提起name
         NSString *strName = [orderinfo objectForKey:@"name"];
-//      for循环变量j内容为1组，j行数为自动换行数
+        //      for循环变量j内容为1组，j行数为自动换行数
         for (int j = 0; j < m_arr_data_sources.count; j++)
         {
-//从未定套餐中名字中提取内容
+            //从未定套餐中名字中提取内容
             NSString *name = [m_arr_data_sources objectAtIndex:j];
-//            对比strName与name的不同内容
+            //            对比strName与name的不同内容
             if ([strName isEqualToString:name])
             {
-//                减去相同的内容
+                //                减去相同的内容
                 [m_arr_data_sources removeObject:name];
-//                结束
+                //                结束
                 break;
             }
         }
     }
     double sum_price = 0;
-//    用for循环提取k的自动行数
+    //    用for循环提取k的自动行数
     for (int k = 0; k < m_arr_data_source.count; k++)
     {
-//    提取已定套餐显示的内容
+        //    提取已定套餐显示的内容
         NSDictionary *priceinfo = [m_arr_data_source objectAtIndex:k];
-//        从已定套餐内容提取想要显示的价位值转换字符串变数组
+        //        从已定套餐内容提取想要显示的价位值转换字符串变数组
         NSString *strprice = [priceinfo objectForKey:@"price"];
         double double_price = strprice.doubleValue;
-        
         sum_price = sum_price + double_price;
-        
-      
     }
-//   声明一个lable把sum_price 放到lable里。
-    UILabel *label1 = [[UILabel alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-73, self.view.frame.size.width, 30)];
-    label1.backgroundColor = [UIColor blackColor];
-    label1.text = [[NSString alloc]initWithFormat:@"总计%.2f元",sum_price];
-    label1.font = [UIFont fontWithName:@"Arial" size:30];
-    label1.textAlignment = NSTextAlignmentCenter;
-    label1.textColor = [UIColor whiteColor];
-    label1.adjustsFontSizeToFitWidth = YES;
-    [self.view addSubview:label1];
-    }
+    return sum_price;
+}
+-(UILabel *)creat_label_price:(double)sum_price
+{
+    //   声明一个lable把sum_price 放到lable里。
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-73, self.view.frame.size.width, 30)];
+    label.backgroundColor = [UIColor blackColor];
+    label.text = [[NSString alloc]initWithFormat:@"总计%.2f元",sum_price];
+    label.font = [UIFont fontWithName:@"Arial" size:30];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor whiteColor];
+    label.adjustsFontSizeToFitWidth = YES;
+    [self.view addSubview:label];
+    return label;
+}
+
 //沙盒
 - (NSMutableArray *)read_file_from_path:(NSString *)fileName
 {
@@ -82,9 +90,6 @@
     return array_data_source;
     
 }
-
-
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -97,14 +102,11 @@
 {
     return 2;
 }
-
-
 /*设置标题尾的宽度*/
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 30;
 }
-
 /*设置标题头的名称*/
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section;
@@ -116,21 +118,16 @@
     {
         UILabel *label0ne =[[UILabel alloc]initWithFrame:CGRectMake(0,0,200,30)];
         label0ne.text = @"已定套餐";
-       
         [view addSubview:label0ne];
     }
     else
     {
         UILabel *lableTwo = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 30)];
         lableTwo.text = @"未定套餐";
-        
-        
         [view addSubview:lableTwo];
-        
     }
     return view;
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -148,22 +145,16 @@
 
 
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-
 {
     //    声明静态字符串型对象，用来标记重用单元格
     static NSString *CellIdentifier = @"cells";
     //    用TableSampleIdentifier表示需要重用的单元
     ValueTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
     //    如果如果没有多余单元，则需要创建新的单元
-    
     if (cell == nil)
     {
         cell = [[ValueTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        
     }
-    
-    
     if (indexPath.section == 0)
     {
         //    获取当前行信息值
@@ -177,27 +168,22 @@
         {
             cell.price_text_label.textColor = [UIColor redColor];
         }
-       
-        //    name txte label = [[ sha he shu ju yuan zhong lei zhi yin ] yin yong zi dian nei ming cheng]
+        //  name txte label = [[ sha he shu ju yuan zhong lei zhi yin ] yin yong zi dian nei ming cheng]
         cell.name_text_label.text = [[m_arr_data_source objectAtIndex:row]objectForKey:@"name"];
         cell.price_text_label.text = str_price;
         cell.restaurant_text_label.text = [[m_arr_data_source objectAtIndex:row]objectForKey:@"restaurant"];
         cell.combo_text_label.text = [[m_arr_data_source objectAtIndex:row]objectForKey:@"combo"];
-        cell.money_text_label.text = [[m_arr_data_source objectAtIndex:row]objectForKey:@"money"];
+//        cell.money_text_label.text 
     }
-    
     if (indexPath.section == 1)
     {
         cell.textLabel.text = [m_arr_data_sources objectAtIndex:indexPath.row];
     }
-    
     return cell;
-
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  
     return 80;
 }
 
