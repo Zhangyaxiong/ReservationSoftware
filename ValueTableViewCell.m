@@ -12,6 +12,7 @@
 @implementation ValueTableViewCell
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
+//    设置各个数据的位置坐标，其中这里重点学习了全部局坐标的展示。
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {

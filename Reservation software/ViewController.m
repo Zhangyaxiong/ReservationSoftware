@@ -16,18 +16,18 @@
 {
     [super viewDidLoad];
     
-    
+//  设置导航菜单名称
     self.navigationItem.title = @"订餐";
     [self.navigationController.navigationBar setBarTintColor:[UIColor blackColor]];
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil]];
     
-    
+//    设置宽为全屏
     double width = self.view.frame.size.width;
-    
+//    设置字体大小
     [self create_button: width :@selector(order_button_pressed:) :90 :@"帮订餐"];
     [self create_button: width :@selector(look_up_ordered_restaurant:) :150 :@"看订餐"];
     
-    
+//  设置返回页面
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStylePlain target:nil action:nil];
     backItem.tintColor = [UIColor whiteColor];
     [self.navigationItem setBackBarButtonItem:backItem];

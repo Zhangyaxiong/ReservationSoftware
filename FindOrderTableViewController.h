@@ -11,7 +11,7 @@
 @interface FindOrderTableViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource>
 {
     NSArray *m_arr_data_source;
-    NSMutableArray *m_arr_data_source2;
+    NSMutableArray *m_arr_data_sources;
     
 }
 @property(nonatomic,retain)UITableView *tableView;

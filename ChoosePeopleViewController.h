@@ -9,15 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface ChoosePeopleViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
-{
+
+ {
     
     UITableView *tableview;
     
     NSArray *nameArray; //创建个数组来放我们的数据
     
-    
-    
-}
+ }
 
 @property (strong,nonatomic)UITableView *tableview;
 

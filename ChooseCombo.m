@@ -16,100 +16,128 @@
 @synthesize ComboArray;
 @synthesize tableviewCombo;
 -(id)initWithDataArray :(NSArray *)comboArray
-{
+  {
+    
     self = [super init];
-    if (self) {
+    
+      if (self)
+    {
+    
         ComboArray = comboArray;
+    
     }
-    return self ;
-}
+    
+      return self ;
+  }
 
 -(void)presentationTableview
-{
+ {
     
-    tableviewCombo = [[UITableView alloc]initWithFrame: CGRectMake(0, 0,self.view.bounds.size.width,self.view.bounds.size.height)style:UITableViewStylePlain];
-    tableviewCombo.delegate = self;
     
-    tableviewCombo.dataSource = self;
-    
-    [self.view addSubview:tableviewCombo];
+     tableviewCombo = [[UITableView alloc]initWithFrame: CGRectMake(0, 0,self.view.bounds.size.width,
+                                                                   self.view.bounds.size.height)style:UITableViewStylePlain];
    
-//    NSArray *ArrayC = [[NSArray alloc]initWithObjects:@"小吃",@"中餐",@"西餐", nil];
-//    
-//    ComboArray  = ArrayC;
-    
-
-    
-}
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    self.title = @"选套餐";
-    
-    [self presentationTableview];
+     tableviewCombo.delegate = self;
     
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+     tableviewCombo.dataSource = self;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-
-
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    // Return the number of rows in the section.
-    return[ComboArray count];
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-
-{
     
-    return 80;
+     [self.view addSubview:tableviewCombo];
+   
     
-}
+ }
+//警告
+- (void)didReceiveMemoryWarning
+
+ {
+    
+    [super didReceiveMemoryWarning];
+    
+ }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellCombo = @"cell";
+ {
+     static NSString *CellCombo = @"cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellCombo];
+     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellCombo];
     
-    // Configure the cell...
-    if(cell == nil)
-    {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellCombo];
+    
+     if(cell == nil)
+     
+     {
+       
+         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellCombo];
         
-    }
-    int row = (int)indexPath.row;
-    cell.textLabel.text = [[ComboArray objectAtIndex:row]objectForKey:@"name"];
-    cell.detailTextLabel.text = [[ComboArray objectAtIndex:row]objectForKey:@"price"];
-    cell.textLabel.numberOfLines = 10;
-    cell.textLabel.font = [UIFont systemFontOfSize:20];
-    cell.textLabel.textColor = [UIColor blueColor];
-    return cell;
-}
+     }
+     
+     int row = (int)indexPath.row;
+     
+     cell.textLabel.text = [[ComboArray objectAtIndex:row]objectForKey:@"name"];
+     
+     cell.detailTextLabel.text = [[ComboArray objectAtIndex:row]objectForKey:@"price"];
+    
+     cell.textLabel.numberOfLines = 10;
+    
+     cell.textLabel.font = [UIFont systemFontOfSize:20];
+    
+     cell.textLabel.textColor = [UIColor blueColor];
+    
+     return cell;
+ }
+
+- (void)viewDidLoad
+
+{
+    [super viewDidLoad];
+     
+     self.title = @"选套餐";
+    
+    [self presentationTableview];
+    
+   
+ }
+//截成几段
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+
+{
+    
+    return 1;
+
+ }
+//返回多少行
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+
+ {
+
+    return[ComboArray count];
+ 
+ }
+//设置行高
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+
+ {
+    
+    return 80;
+    
+ }
+
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSDictionary *titleStringCobmo =[ComboArray objectAtIndex:[indexPath row]];
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"notfactionCobmo" object:titleStringCobmo userInfo:nil];
-    [self. navigationController popViewControllerAnimated:YES];
-}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    }
+ {
+//    字典= 数字/行数
+     NSDictionary *titleStringCobmo =[ComboArray objectAtIndex:[indexPath row]];
+// 通知指令
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"notfactionCobmo" object:titleStringCobmo userInfo:nil];
+// 这句话什么意思
+    [self. navigationController popViewControllerAnimated:YES];
+ 
+ }
+
 
 
 @end

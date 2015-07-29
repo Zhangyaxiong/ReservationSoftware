@@ -20,8 +20,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    获取沙盒内的文件
     m_arr_data_source = [self read_file_from_path:@"order.plist"];
-    m_arr_data_source2 = [self read_file_from_path:@"nameFile.plist"];
+    m_arr_data_sources = [self read_file_from_path:@"nameFile.plist"];
     
 //  for 循环如果i内容为1组，i行数为自动换行数
     for (int i = 0; i < m_arr_data_source.count; i++)
@@ -31,15 +32,15 @@
 //        从已定套餐内容里提起name
         NSString *strName = [orderinfo objectForKey:@"name"];
 //      for循环变量j内容为1组，j行数为自动换行数
-        for (int j = 0; j < m_arr_data_source2.count; j++)
+        for (int j = 0; j < m_arr_data_sources.count; j++)
         {
 //从未定套餐中名字中提取内容
-            NSString *name = [m_arr_data_source2 objectAtIndex:j];
+            NSString *name = [m_arr_data_sources objectAtIndex:j];
 //            对比strName与name的不同内容
             if ([strName isEqualToString:name])
             {
 //                减去相同的内容
-                [m_arr_data_source2 removeObject:name];
+                [m_arr_data_sources removeObject:name];
 //                结束
                 break;
             }
@@ -51,7 +52,7 @@
     {
 //    提取已定套餐显示的内容
         NSDictionary *priceinfo = [m_arr_data_source objectAtIndex:k];
-//        从已定套餐内容提取想要显示的价位值
+//        从已定套餐内容提取想要显示的价位值转换字符串变数组
         NSString *strprice = [priceinfo objectForKey:@"price"];
         double double_price = strprice.doubleValue;
         
@@ -108,22 +109,23 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section;
 {
+// 标题的   标头设置
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
     view.backgroundColor = [UIColor brownColor];
     if (section == 0)
     {
-        UILabel *label1 =[[UILabel alloc]initWithFrame:CGRectMake(0,0,200,30)];
-        label1.text = @"已定套餐";
+        UILabel *label0ne =[[UILabel alloc]initWithFrame:CGRectMake(0,0,200,30)];
+        label0ne.text = @"已定套餐";
        
-        [view addSubview:label1];
+        [view addSubview:label0ne];
     }
     else
     {
-        UILabel *lable2 = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 30)];
-        lable2.text = @"未定套餐";
+        UILabel *lableTwo = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 30)];
+        lableTwo.text = @"未定套餐";
         
         
-        [view addSubview:lable2];
+        [view addSubview:lableTwo];
         
     }
     return view;
@@ -132,13 +134,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+// 返回多少行
     if(section == 0)
     {
         return m_arr_data_source.count;
     }
     if (section == 1)
     {
-        return m_arr_data_source2.count;
+        return m_arr_data_sources.count;
     }
     return 0;
 }
@@ -185,7 +188,7 @@
     
     if (indexPath.section == 1)
     {
-        cell.textLabel.text = [m_arr_data_source2 objectAtIndex:indexPath.row];
+        cell.textLabel.text = [m_arr_data_sources objectAtIndex:indexPath.row];
     }
     
     return cell;

@@ -20,12 +20,16 @@
 
 -(void)drawTableView
 
-{
-    tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,self.view.bounds.size.width,self.view.bounds.size.height)style:UITableViewStylePlain];
+ {
+    
+     tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,self.view.bounds.size.width,self.view.bounds.size.height)style:UITableViewStylePlain];
     
     //    delegate：委派
+    
     tableview.delegate = self;
-    //    dataSource:数据源
+    
+     //    dataSource:数据源
+    
     tableview.dataSource = self;
     
     [self.view addSubview:tableview];
@@ -34,47 +38,21 @@
     
     nameArray  = array;
     
+ }
 
-}
+- (void)didReceiveMemoryWarning
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    self.title = @"订餐";
-    // Do any additional setup after loading the view.
-     [self drawTableView];
-   
+ {
     
-}
-- (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView//显示章节数
-
-{
-    
-    return 1;
-    
-}
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-
-{
-    
-    return [nameArray count];
-    //这个是指定加载数据的多少即显示多少个cell，如果这个地方弄错了会崩溃的哟
-    
-}
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-
-{
-    
-    return 80;
-    
-}
-
+    [super didReceiveMemoryWarning];
+     
+ }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 
-{
+ {
     
-
     static NSString *CellIdentifier = @"Cell";
+    
     UITableViewCell *cell = [tableview dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell ==nil)
@@ -84,41 +62,67 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     
-    
-    
     cell.textLabel.text = [nameArray objectAtIndex:[indexPath row]];
+    
     cell.textLabel.numberOfLines = 10;
+    
     cell.textLabel.font = [UIFont systemFontOfSize:20];
+    
     cell.textLabel.textColor = [UIColor blueColor];
+    
     return cell;
     
-}
+ }
+
+- (void)viewDidLoad
+
+ {
+    
+     [super viewDidLoad];
+    
+     self.title = @"订餐";
+     
+     [self drawTableView];
+    
+ }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
+
+ {
+    
+    return 1;
+    
+ }
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+
+
+ {
+    
+    return [nameArray count];
+    
+    
+ }
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+
+ {
+    
+    return 80;
+    
+ }
+
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 
-{
-//    点击后出现固定值
+ {
+
     NSString *titileString = [nameArray objectAtIndex:[indexPath row]];
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"notfactionName" object:titileString];
-    
+  
     [[NSNotificationCenter defaultCenter]postNotificationName:@"notfactionName" object:titileString userInfo:nil];
+    
     [self.navigationController popViewControllerAnimated:YES];
     
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ }
 
 @end

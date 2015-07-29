@@ -14,7 +14,7 @@
     
     NSArray *ComboArray;
 }
-//这是什么意思
+
 @property(strong,nonatomic)UITableView *tableviewCombo;
 
 @property(strong,nonatomic)NSArray *ComboArray;
