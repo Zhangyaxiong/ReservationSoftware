@@ -25,7 +25,6 @@
     m_arr_data_sources = [self read_file_from_path:@"nameFile.plist"];
     double sum_price = [self get_ordered_sum_price];
     [self creat_label_price:sum_price];
-    
 }
 -(double)get_ordered_sum_price
 {
@@ -62,6 +61,7 @@
         double double_price = strprice.doubleValue;
         sum_price = sum_price + double_price;
     }
+
     return sum_price;
 }
 -(UILabel *)creat_label_price:(double)sum_price
@@ -117,13 +117,13 @@
     if (section == 0)
     {
         UILabel *label0ne =[[UILabel alloc]initWithFrame:CGRectMake(0,0,200,30)];
-        label0ne.text = @"已定套餐";
+        label0ne.text = [NSString stringWithFormat:@"已定套餐%lu人",(unsigned long)m_arr_data_source.count];
         [view addSubview:label0ne];
     }
     else
     {
         UILabel *lableTwo = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 30)];
-        lableTwo.text = @"未定套餐";
+        lableTwo.text =[NSString stringWithFormat:@"未定套餐%u人",(unsigned )m_arr_data_sources.count];
         [view addSubview:lableTwo];
     }
     return view;
@@ -157,23 +157,8 @@
     }
     if (indexPath.section == 0)
     {
-        //    获取当前行信息值
-        NSUInteger row = [indexPath row];
-//        获取当价钱前值的行数
-        NSString *str_price = [[m_arr_data_source objectAtIndex:row]objectForKey:@"price"];
-//        将价钱值类型转换成double类型，
-        double d_price = str_price.doubleValue ;
-//        将价钱值作比较大于11的数显示为红色。
-        if (d_price > 11.00)
-        {
-            cell.price_text_label.textColor = [UIColor redColor];
-        }
-        //  name txte label = [[ sha he shu ju yuan zhong lei zhi yin ] yin yong zi dian nei ming cheng]
-        cell.name_text_label.text = [[m_arr_data_source objectAtIndex:row]objectForKey:@"name"];
-        cell.price_text_label.text = str_price;
-        cell.restaurant_text_label.text = [[m_arr_data_source objectAtIndex:row]objectForKey:@"restaurant"];
-        cell.combo_text_label.text = [[m_arr_data_source objectAtIndex:row]objectForKey:@"combo"];
-//        cell.money_text_label.text 
+        
+        [self tableViewSceion:indexPath atCell:cell];
     }
     if (indexPath.section == 1)
     {
@@ -182,6 +167,27 @@
     return cell;
 }
 
+-(UITableViewCell *)tableViewSceion:(NSIndexPath *)indexPath atCell:(ValueTableViewCell *)cell
+{
+    NSUInteger row = [indexPath row];
+    //        获取当价钱前值的行数
+    NSString *str_price = [[m_arr_data_source objectAtIndex:row]objectForKey:@"price"];
+    //        将价钱值类型转换成double类型，
+    NSString *str_vele = [[NSString alloc]initWithString:str_price];
+    NSString *str_show_value = [str_vele stringByAppendingString:@"￥"];
+    double d_price = str_vele.doubleValue ;
+    //        将价钱值作比较大于11的数显示为红色。
+    if (d_price > 11.00)
+    {
+        cell.price_text_label.textColor = [UIColor redColor];
+    }
+    //  name txte label = [[ sha he shu ju yuan zhong lei zhi yin ] yin yong zi dian nei ming cheng]
+    cell.name_text_label.text = [[m_arr_data_source objectAtIndex:row]objectForKey:@"name"];
+    cell.price_text_label.text =  str_show_value;
+    cell.restaurant_text_label.text = [[m_arr_data_source objectAtIndex:row]objectForKey:@"restaurant"];
+    cell.combo_text_label.text = [[m_arr_data_source objectAtIndex:row]objectForKey:@"combo"];
+    return cell;
+}
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 80;
