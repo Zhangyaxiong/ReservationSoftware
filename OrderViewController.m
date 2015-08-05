@@ -63,6 +63,11 @@
     m_nameLabel = [self createSelectLabelWithBorder :CGRectMake(width/15,70, 13*width/15,44)];
     m_resrveLabel = [self createSelectLabelWithBorder:CGRectMake(width/15, 250, 13*width/15, 44)];
     m_cobmoLabel = [self createSelectLabelWithBorder:CGRectMake(width/15,420, 13*width/15,44)];
+    [self create_button_with_frame];
+}
+- (void)create_button_with_frame
+{
+    double width = self.view.frame.size.width;
     [self create_button_with_frame:CGRectMake(width/15,140, 13*width/15,44) :@"选人" :@selector(choosePeopleButtonPressed:)];
     UIBarButtonItem *backItemReservationEat = [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStylePlain target:nil action:nil];
     backItemReservationEat.tintColor = [UIColor whiteColor];

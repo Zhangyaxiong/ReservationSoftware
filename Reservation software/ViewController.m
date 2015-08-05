@@ -19,15 +19,25 @@
     self.navigationItem.title = @"订餐";
     [self.navigationController.navigationBar setBarTintColor:[UIColor blackColor]];
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil]];
-//    设置宽为全屏
+    [self create_button_size_width];
+    [self arry_filePath_nameArray_filePathName];
+}
+-(void)create_button_size_width
+{
     double width = self.view.frame.size.width;
-//    设置字体大小
+    //    设置字体大小
     [self create_button: width :@selector(order_button_pressed:) :90 :@"帮订餐"];
     [self create_button: width :@selector(look_up_ordered_restaurant:) :150 :@"看订餐"];
-//  设置返回页面
+}
+-(void)backItem
+{
+    //  设置返回页面
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStylePlain target:nil action:nil];
     backItem.tintColor = [UIColor whiteColor];
     [self.navigationItem setBackBarButtonItem:backItem];
+}
+-(void)arry_filePath_nameArray_filePathName
+{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docDir = [paths objectAtIndex:0];
     if(!docDir)
@@ -60,7 +70,7 @@
 }
 - (void)look_up_ordered_restaurant :(id)sender
 {
-    FindOrderTableViewController *find_order = [[FindOrderTableViewController alloc]initWithStyle:UITableViewStyleGrouped];
+    AddPice *find_order = [[AddPice alloc]init];
     [self.navigationController pushViewController:find_order animated:YES];
 }
 

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "OrderViewController.h"
-#import "FindOrderTableViewController.h"
+#import "AddPice.h"
 
 @interface ViewController : UIViewController
 

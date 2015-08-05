@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		69A085101B4BAC0B00944BE8 /* FindOrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A0850F1B4BAC0B00944BE8 /* FindOrderTableViewController.m */; };
+		69816B2B1B70C89300E76E09 /* AddPice.m in Sources */ = {isa = PBXBuildFile; fileRef = 69816B2A1B70C89300E76E09 /* AddPice.m */; };
 		69C077901B4FC55500DBAA4C /* ValueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C0778F1B4FC55500DBAA4C /* ValueTableViewCell.m */; };
 		69E1AE321B1D470E007DF947 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E1AE311B1D470E007DF947 /* main.m */; };
 		69E1AE351B1D470E007DF947 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E1AE341B1D470E007DF947 /* AppDelegate.m */; };
@@ -33,8 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		69A0850E1B4BAC0B00944BE8 /* FindOrderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindOrderTableViewController.h; sourceTree = "<group>"; };
-		69A0850F1B4BAC0B00944BE8 /* FindOrderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindOrderTableViewController.m; sourceTree = "<group>"; };
+		69816B291B70C89300E76E09 /* AddPice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPice.h; sourceTree = "<group>"; };
+		69816B2A1B70C89300E76E09 /* AddPice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPice.m; sourceTree = "<group>"; };
 		69C0778E1B4FC55500DBAA4C /* ValueTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueTableViewCell.h; sourceTree = "<group>"; };
 		69C0778F1B4FC55500DBAA4C /* ValueTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueTableViewCell.m; sourceTree = "<group>"; };
 		69E1AE2C1B1D470E007DF947 /* Reservation software.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reservation software.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,10 +96,10 @@
 		69A085121B4BCC0000944BE8 /* look_order */ = {
 			isa = PBXGroup;
 			children = (
+				69816B291B70C89300E76E09 /* AddPice.h */,
+				69816B2A1B70C89300E76E09 /* AddPice.m */,
 				69C0778E1B4FC55500DBAA4C /* ValueTableViewCell.h */,
 				69C0778F1B4FC55500DBAA4C /* ValueTableViewCell.m */,
-				69A0850E1B4BAC0B00944BE8 /* FindOrderTableViewController.h */,
-				69A0850F1B4BAC0B00944BE8 /* FindOrderTableViewController.m */,
 			);
 			name = look_order;
 			sourceTree = "<group>";
@@ -271,8 +271,8 @@
 				69E1AE381B1D470E007DF947 /* ViewController.m in Sources */,
 				69E1AE351B1D470E007DF947 /* AppDelegate.m in Sources */,
 				69E1AE321B1D470E007DF947 /* main.m in Sources */,
-				69A085101B4BAC0B00944BE8 /* FindOrderTableViewController.m in Sources */,
 				69E3B4131B256E8600199E0A /* OrderViewController.m in Sources */,
+				69816B2B1B70C89300E76E09 /* AddPice.m in Sources */,
 				69F57F4F1B2A7914000048FF /* ResrveForRestaurant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

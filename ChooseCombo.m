@@ -22,24 +22,6 @@
       return self ;
 }
 
-//-(void)presentationTableview
-// {
-//    
-//    
-//     tableviewCombo = [[UITableView alloc]initWithFrame: CGRectMake(0, 0,self.view.bounds.size.width,
-//                                                                   self.view.bounds.size.height)style:UITableViewStylePlain];
-//   
-//     tableviewCombo.delegate = self;
-//    
-//    
-//     tableviewCombo.dataSource = self;
-//    
-//    
-//     [self.view addSubview:tableviewCombo];
-   
-    
-// }
-//警告
 - (void)didReceiveMemoryWarning
  {
     [super didReceiveMemoryWarning];

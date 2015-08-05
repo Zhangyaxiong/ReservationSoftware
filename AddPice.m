@@ -1,81 +1,82 @@
 //
-//  Query Message.m
+//  AddPice.m
 //  Reservation software
 //
-//  Created by 张亚雄 on 15/7/7.
+//  Created by 张亚雄 on 15/8/4.
 //  Copyright (c) 2015年 张亚雄. All rights reserved.
 //
 
-#import "FindOrderTableViewController.h"
-#import "ValueTableViewCell.h"
 #import "AddPice.h"
-@interface FindOrderTableViewController ()
-@end
+#import "ValueTableViewCell.h"
 
-@implementation FindOrderTableViewController
+@implementation AddPice
 @synthesize listData=_listData;
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     //    获取沙盒内的文件
+    UITableView *tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 50) style:UITableViewStyleGrouped];
+    tableview.delegate = self;
+    tableview.dataSource = self;
+    [self.view addSubview:tableview];
+    //    获取沙盒内的文件
     m_arr_data_source = [self read_file_from_path:@"order.plist"];
     m_arr_data_sources = [self read_file_from_path:@"nameFile.plist"];
     double sum_price = [self get_ordered_sum_price];
-   [self creat_label_price:sum_price];
+    [self creat_label_price:sum_price];
 }
+//  for 循环如果i内容为1组，i行数为自动换行数
+//   提取已定套餐内容
+//        从已定套餐内容里提起name
+ //      for循环变量j内容为1组，j行数为自动换行数
+ //从未定套餐中名字中提取内容
+//            对比strName与name的不同内容
+//                减去相同的内容
+//                结束
+//    用for循环提取k的自动行数
+ //    提取已定套餐显示的内容
+//        从已定套餐内容提取想要显示的价位值转换字符串变数组
+
 -(double)get_ordered_sum_price
 {
-    //  for 循环如果i内容为1组，i行数为自动换行数
     for (int i = 0; i < m_arr_data_source.count; i++)
     {
-        //   提取已定套餐内容
         NSDictionary *orderinfo = [m_arr_data_source objectAtIndex:i];
-        //        从已定套餐内容里提起name
         NSString *strName = [orderinfo objectForKey:@"name"];
-        //      for循环变量j内容为1组，j行数为自动换行数
         for (int j = 0; j < m_arr_data_sources.count; j++)
         {
-            //从未定套餐中名字中提取内容
             NSString *name = [m_arr_data_sources objectAtIndex:j];
-            //            对比strName与name的不同内容
-            if ([strName isEqualToString:name])
+        if ([strName isEqualToString:name])
             {
-                //                减去相同的内容
                 [m_arr_data_sources removeObject:name];
-                //                结束
                 break;
             }
         }
     }
     double sum_price = 0;
-    //    用for循环提取k的自动行数
     for (int k = 0; k < m_arr_data_source.count; k++)
     {
-        //    提取已定套餐显示的内容
         NSDictionary *priceinfo = [m_arr_data_source objectAtIndex:k];
-        //        从已定套餐内容提取想要显示的价位值转换字符串变数组
-        NSString *strprice = [priceinfo objectForKey:@"price"];
+                NSString *strprice = [priceinfo objectForKey:@"price"];
         double double_price = strprice.doubleValue;
         sum_price = sum_price + double_price;
     }
-
     return sum_price;
 }
-//-(UILabel *)creat_label_price:(double)sum_price
-//{
-//    //   声明一个lable把sum_price 放到lable里。
-//    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-73, self.view.frame.size.width, 30)];
-//    label.backgroundColor = [UIColor blackColor];
-//    label.text = [[NSString alloc]initWithFormat:@"总计%.2f元",sum_price];
-//    label.font = [UIFont fontWithName:@"Arial" size:30];
-//    label.textAlignment = NSTextAlignmentCenter;
-//    label.textColor = [UIColor whiteColor];
-//    label.adjustsFontSizeToFitWidth = YES;
-//    [self.view addSubview:label];
-//    return label;
-//}
+-(UILabel *)creat_label_price:(double)sum_price
+{
+    //   声明一个lable把sum_price 放到lable里。
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-73, self.view.frame.size.width, 73)];
+    label.backgroundColor = [UIColor blackColor];
+    label.text = [[NSString alloc]initWithFormat:@"总计%.2f元",sum_price];
+    label.font = [UIFont fontWithName:@"Arial" size:30];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor whiteColor];
+    label.adjustsFontSizeToFitWidth = YES;
+    [self.view addSubview:label];
+    return label;
+}
 
 //沙盒
 - (NSMutableArray *)read_file_from_path:(NSString *)fileName
@@ -87,7 +88,6 @@
     NSString *str_data_file_path = [str_file_path stringByAppendingPathComponent:fileName];
     NSMutableArray *array_data_source = [[NSMutableArray alloc]initWithContentsOfFile:str_data_file_path];
     return array_data_source;
-    
 }
 - (void)didReceiveMemoryWarning
 {
@@ -110,7 +110,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section;
 {
-// 标题的   标头设置
+    // 标题的   标头设置
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
     view.backgroundColor = [UIColor brownColor];
     if (section == 0)
@@ -130,7 +130,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-// 返回多少行
+    // 返回多少行
     if(section == 0)
     {
         return m_arr_data_source.count;
@@ -143,7 +143,7 @@
 }
 
 
- - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //    声明静态字符串型对象，用来标记重用单元格
     static NSString *CellIdentifier = @"cells";
@@ -156,7 +156,6 @@
     }
     if (indexPath.section == 0)
     {
-        
         [self tableViewSceion:indexPath atCell:cell];
     }
     if (indexPath.section == 1)
@@ -194,44 +193,3 @@
 
 
 @end
-    
-
-
-
-//
-// - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-// if (editingStyle == UITableViewCellEditingStyleDelete)
-// {
-//     
-// [tableView deleteRowsAtIndexPaths:@[m_arr_data_source] withRowAnimation:UITableViewRowAnimationFade];
-// } else if (editingStyle == UITableViewCellEditingStyleDelete)
-
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
-
-
-

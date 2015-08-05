@@ -7,13 +7,12 @@
 //
 
 #import "ValueTableViewCell.h"
-
+#import "AddPice.h"
 
 @implementation ValueTableViewCell
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    
     if (self)
     {
       self.name_text_label = [self create_label_with_frame:CGRectMake( 10, 12,60,10) :20.0f];
