@@ -70,7 +70,7 @@
 }
 - (void)look_up_ordered_restaurant :(id)sender
 {
-    AddPice *find_order = [[AddPice alloc]init];
+    order_title_info *find_order = [[order_title_info alloc]init];
     [self.navigationController pushViewController:find_order animated:YES];
 }
 

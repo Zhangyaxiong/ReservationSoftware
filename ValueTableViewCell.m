@@ -7,7 +7,7 @@
 //
 
 #import "ValueTableViewCell.h"
-#import "AddPice.h"
+#import "order_title_info.h"
 
 @implementation ValueTableViewCell
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

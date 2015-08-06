@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddPice : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface order_title_info : UIViewController<UITableViewDelegate,UITableViewDataSource>
 {
     NSArray *m_arr_data_source;
     NSMutableArray *m_arr_data_sources;

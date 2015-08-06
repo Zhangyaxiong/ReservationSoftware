@@ -6,17 +6,17 @@
 //  Copyright (c) 2015年 张亚雄. All rights reserved.
 //
 
-#import "AddPice.h"
+#import "order_title_info.h"
 #import "ValueTableViewCell.h"
 
-@implementation AddPice
+@implementation order_title_info
 @synthesize listData=_listData;
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UITableView *tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 50) style:UITableViewStyleGrouped];
+    UITableView *tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 60) style:UITableViewStyleGrouped];
     tableview.delegate = self;
     tableview.dataSource = self;
     [self.view addSubview:tableview];
