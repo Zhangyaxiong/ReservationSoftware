@@ -9,8 +9,7 @@
 #import "ChooseCombo.h"
 
 @implementation ChooseCombo
-@synthesize ComboArray;
-//@synthesize tableviewCombo;
+
 -(id)initWithDataArray :(NSArray *)comboArray
 {
     self = [super init];
@@ -21,7 +20,6 @@
     
       return self ;
 }
-
 - (void)didReceiveMemoryWarning
  {
     [super didReceiveMemoryWarning];

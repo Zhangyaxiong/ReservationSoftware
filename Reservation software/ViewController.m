@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ReservationOrderContent.h"
 @interface ViewController ()
 @end
 
@@ -15,8 +16,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//  设置导航菜单名称
-    self.navigationItem.title = @"订餐";
+
+    [self backItem];
+     self.title = @"订餐";
+    
     [self.navigationController.navigationBar setBarTintColor:[UIColor blackColor]];
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil]];
     [self create_button_size_width];

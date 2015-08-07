@@ -13,9 +13,5 @@
     UITableView *tableviewRestaurant;
     NSArray *resrveArray;
 }
-//这是什么意思
-@property(strong,nonatomic)UITableView *tableviewRestaurant;
-
-@property(strong,nonatomic)NSArray *resrveArray;
 
 @end

@@ -9,20 +9,14 @@
 #import "ResrveForRestaurant.h"
 
 @implementation ResrveForRestaurant
-@synthesize resrveArray;
-@synthesize tableviewRestaurant;
+
 
 -(void)introdceTableView
  {
-    tableviewRestaurant = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,self.view.bounds.size.width,self.view.bounds.size.height)style:UITableViewStylePlain];
-    //    delegate：委派
-     tableviewRestaurant.delegate = self;
-     //    dataSource:数据源
-     tableviewRestaurant.dataSource = self;
-     //  将 tableviewRestaurant  添加view 里
-     [self.view addSubview:tableviewRestaurant];
+
     NSArray *arrayRest = [[NSArray alloc]initWithObjects:@"KFC",@"MDL",@"星巴克", nil];
     resrveArray  = arrayRest;
+    
  }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

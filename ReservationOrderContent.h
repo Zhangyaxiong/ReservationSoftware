@@ -11,11 +11,8 @@
 @interface order_title_info : UIViewController<UITableViewDelegate,UITableViewDataSource>
 {
     NSArray *m_arr_data_source;
-    NSMutableArray *m_arr_data_sources;
-    
+    //    改成为订餐的名，成员变量名用M
+    NSMutableArray *m_arr_data_didfferent_source;
+    int person_number;
 }
-@property(nonatomic,retain)UITableView *tableView;
-@property(strong,nonatomic) NSArray *listData;
-
-
 @end

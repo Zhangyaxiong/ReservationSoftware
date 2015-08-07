@@ -11,11 +11,8 @@
 @interface ChoosePeopleViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
  {
-    
-    UITableView *tableview;
-    
+    UITableView *tableview;    
     NSArray *nameArray; 
-    
  }
 
 

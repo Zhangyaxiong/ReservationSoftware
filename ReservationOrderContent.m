@@ -6,11 +6,11 @@
 //  Copyright (c) 2015年 张亚雄. All rights reserved.
 //
 
-#import "order_title_info.h"
+#import "ReservationOrderContent.h"
 #import "ValueTableViewCell.h"
 
 @implementation order_title_info
-@synthesize listData=_listData;
+
 
 
 - (void)viewDidLoad
@@ -20,9 +20,11 @@
     tableview.delegate = self;
     tableview.dataSource = self;
     [self.view addSubview:tableview];
+    self.title = @"订餐";
     //    获取沙盒内的文件
     m_arr_data_source = [self read_file_from_path:@"order.plist"];
-    m_arr_data_sources = [self read_file_from_path:@"nameFile.plist"];
+    m_arr_data_didfferent_source = [self read_file_from_path:@"nameFile.plist"];
+    person_number = (int)m_arr_data_didfferent_source.count;
     double sum_price = [self get_ordered_sum_price];
     [self creat_label_price:sum_price];
 }
@@ -40,20 +42,8 @@
 
 -(double)get_ordered_sum_price
 {
-    for (int i = 0; i < m_arr_data_source.count; i++)
-    {
-        NSDictionary *orderinfo = [m_arr_data_source objectAtIndex:i];
-        NSString *strName = [orderinfo objectForKey:@"name"];
-        for (int j = 0; j < m_arr_data_sources.count; j++)
-        {
-            NSString *name = [m_arr_data_sources objectAtIndex:j];
-        if ([strName isEqualToString:name])
-            {
-                [m_arr_data_sources removeObject:name];
-                break;
-            }
-        }
-    }
+    [self sum_price_name];
+
     double sum_price = 0;
     for (int k = 0; k < m_arr_data_source.count; k++)
     {
@@ -64,10 +54,28 @@
     }
     return sum_price;
 }
+-(void)sum_price_name//未选人名
+{
+    for (int i = 0; i < m_arr_data_source.count; i++)
+    {
+        NSDictionary *orderinfo = [m_arr_data_source objectAtIndex:i];
+        NSString *strName = [orderinfo objectForKey:@"name"];
+        for (int j = 0; j < m_arr_data_didfferent_source.count; j++)
+        {
+            NSString *name = [m_arr_data_didfferent_source objectAtIndex:j];
+            if ([strName isEqualToString:name])
+            {
+                [m_arr_data_didfferent_source removeObject:name];
+                break;
+            }
+        }
+     }
+}
+
 -(UILabel *)creat_label_price:(double)sum_price
 {
     //   声明一个lable把sum_price 放到lable里。
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-73, self.view.frame.size.width, 73)];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-40, self.view.frame.size.width, 45)];
     label.backgroundColor = [UIColor blackColor];
     label.text = [[NSString alloc]initWithFormat:@"总计%.2f元",sum_price];
     label.font = [UIFont fontWithName:@"Arial" size:30];
@@ -106,24 +114,27 @@
 {
     return 30;
 }
-/*设置标题头的名称*/
 
+/*设置标题头的名称*/
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section;
 {
+    int thePackageNumber = person_number - (int)m_arr_data_didfferent_source.count;
+    
     // 标题的   标头设置
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
     view.backgroundColor = [UIColor brownColor];
     if (section == 0)
     {
-        UILabel *label0ne =[[UILabel alloc]initWithFrame:CGRectMake(0,0,200,30)];
-        label0ne.text = [NSString stringWithFormat:@"已定套餐%lu人",(unsigned long)m_arr_data_source.count];
-        [view addSubview:label0ne];
+        UILabel *labelready =[[UILabel alloc]initWithFrame:CGRectMake(0,0,200,30)];
+        
+        labelready.text = [NSString stringWithFormat:@"已定套餐%d人",thePackageNumber];
+        [view addSubview:labelready];
     }
     else
     {
-        UILabel *lableTwo = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 30)];
-        lableTwo.text =[NSString stringWithFormat:@"未定套餐%u人",(unsigned )m_arr_data_sources.count];
-        [view addSubview:lableTwo];
+        UILabel *lableUnready = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 30)];
+        lableUnready.text =[NSString stringWithFormat:@"未定套餐%u人",(unsigned )m_arr_data_didfferent_source.count];
+        [view addSubview:lableUnready];
     }
     return view;
 }
@@ -137,7 +148,7 @@
     }
     if (section == 1)
     {
-        return m_arr_data_sources.count;
+        return m_arr_data_didfferent_source.count;
     }
     return 0;
 }
@@ -160,7 +171,7 @@
     }
     if (indexPath.section == 1)
     {
-        cell.textLabel.text = [m_arr_data_sources objectAtIndex:indexPath.row];
+        cell.textLabel.text = [m_arr_data_didfferent_source objectAtIndex:indexPath.row];
     }
     return cell;
 }
@@ -179,7 +190,6 @@
     {
         cell.price_text_label.textColor = [UIColor redColor];
     }
-    //  name txte label = [[ sha he shu ju yuan zhong lei zhi yin ] yin yong zi dian nei ming cheng]
     cell.name_text_label.text = [[m_arr_data_source objectAtIndex:row]objectForKey:@"name"];
     cell.price_text_label.text =  str_show_value;
     cell.restaurant_text_label.text = [[m_arr_data_source objectAtIndex:row]objectForKey:@"restaurant"];

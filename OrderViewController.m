@@ -105,37 +105,7 @@
     self.navigationController.navigationBar.translucent = NO;
      [self create_Label_frame_button];
      [self Dictionary_name_price];
-//     double width = self.view.frame.size.width;
-//    [self createLabelWithText:@"人：" :CGRectMake(width/15, 20, 120, 44)];
-//    [self createLabelWithText:@"餐厅：" :CGRectMake(width/15, 200, 120, 44)];
-//    [self createLabelWithText:@"套餐:" :CGRectMake(width/15, 370, 120, 44)];
-//    m_nameLabel = [self createSelectLabelWithBorder :CGRectMake(width/15,70, 13*width/15,44)];
-//    m_resrveLabel = [self createSelectLabelWithBorder:CGRectMake(width/15, 250, 13*width/15, 44)];
-//    m_cobmoLabel = [self createSelectLabelWithBorder:CGRectMake(width/15,420, 13*width/15,44)];
-// 按钮‘选人’
-//    [self create_button_with_frame:CGRectMake(width/15,140, 13*width/15,44) :@"选人" :@selector(choosePeopleButtonPressed:)];
-////   返回button‘s及text.
-//    UIBarButtonItem *backItemReservationEat = [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStylePlain target:nil action:nil];
-//    backItemReservationEat.tintColor = [UIColor whiteColor];
-//     [self.navigationItem setBackBarButtonItem:backItemReservationEat];
-////    按钮'选餐厅'
-//     [self create_button_with_frame:CGRectMake(width/15,320, 13*width/15,44) :@"选餐厅" :@selector(ResrveForRestaurantButtonPressed:)];
-//     NSArray *arrPeopele = [[NSArray alloc]initWithObjects:@"KFC",@"MDL",@"星巴克", nil];
-//    m_dicResrveLabel = [[NSDictionary alloc]initWithObjectsAndKeys:arrPeopele,@"许嵩",arrPeopele,@"周杰伦",arrPeopele,@"梁静茹",arrPeopele,@"许飞",nil];
-////   按钮“选套餐”
-//     [self create_button_with_frame:CGRectMake(width/15,470, 13*width/15,44) :@"选套餐" :@selector(ChooseCobmoButtonPressed:)];
-//    NSDictionary *dicKFC1 = [[NSDictionary alloc]initWithObjectsAndKeys:@"超值多人餐",@"name",@"20",@"price",nil];
-//    NSDictionary *dicKFC2= [[NSDictionary alloc]initWithObjectsAndKeys:@"美味汉堡",@"name",@"11",@"price", nil];
-//    NSArray *arrKFC = [[NSArray alloc]initWithObjects:dicKFC1,dicKFC2,nil];
-//    NSDictionary *dicMDL1 = [[NSDictionary alloc]initWithObjectsAndKeys:@"脆香油条",@"name",@"10",@"price", nil];
-//    NSDictionary *dicMDL2 =[[NSDictionary alloc]initWithObjectsAndKeys:@"圣代",@"name",@"8",@"price",nil];
-//    NSArray *arrMDL = [[NSArray alloc]initWithObjects:dicMDL1,dicMDL2 ,nil];
-//    NSDictionary *dicXbk1 = [[NSDictionary alloc]initWithObjectsAndKeys:@"奶茶",@"name",@"8",@"price", nil];
-//    NSDictionary *dicXbk2 = [[NSDictionary alloc]initWithObjectsAndKeys:@"胜利茶",@"name",@"12",@"price",nil];
-//    NSArray *arrXbc =[[NSArray alloc]initWithObjects:dicXbk1,dicXbk2,nil];
-//    m_dicComboData =[[NSDictionary alloc]initWithObjectsAndKeys:arrKFC,@"KFC",arrMDL,@"MDL",arrXbc,@"星巴克",nil];
-//    确定按钮
-//     [self create_button_with_frame:CGRectMake(width/15,520, 13*width/15,44) :@"确定" :@selector(confirmButtonPressed:)];
+
      }
 
 - (UIButton *)create_button_with_frame :(CGRect)frame :(NSString *)btn_title :(SEL)pressed_event
@@ -167,26 +137,34 @@
 {
     if(![m_nameLabel.text isEqualToString: @""] && ![m_resrveLabel.text  isEqualToString: @""] && ![m_cobmoLabel.text  isEqualToString: @""])
     {
-        NSString *str_data_file_path = [self getFilePathWithFileName:@"order.plist"];
-        NSDictionary *dic = [[NSDictionary alloc]initWithObjectsAndKeys:m_nameLabel.text,@"name",m_resrveLabel.text,@"restaurant",m_cobmoLabel.text,@"combo",m_strprice,@"price",nil];
-        NSMutableArray *array_order = [[NSMutableArray alloc]initWithContentsOfFile:str_data_file_path];
-        if (array_order == nil)
-        {
-            array_order = [[NSMutableArray alloc]initWithCapacity:0];
-        }
-        [array_order addObject:dic];
-        BOOL is_save_success = [array_order writeToFile:str_data_file_path atomically:YES];
-        if (is_save_success == true)
-        {
-            [(UIButton *)sender setEnabled:NO];
-        }
+        [self m_label_text:(id)sender];
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示信息" message:@"用户输入不完整，订餐失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alert show];
+        [self array_order_save_not_success ];
     }
  }
+-(void)m_label_text:(id)sender
+{
+    NSString *str_data_file_path = [self getFilePathWithFileName:@"order.plist"];
+    NSDictionary *dic = [[NSDictionary alloc]initWithObjectsAndKeys:m_nameLabel.text,@"name",m_resrveLabel.text,@"restaurant",m_cobmoLabel.text,@"combo",m_strprice,@"price",nil];
+    NSMutableArray *array_order = [[NSMutableArray alloc]initWithContentsOfFile:str_data_file_path];
+    if (array_order == nil)
+    {
+        array_order = [[NSMutableArray alloc]initWithCapacity:0];
+    }
+    [array_order addObject:dic];
+    BOOL is_save_success = [array_order writeToFile:str_data_file_path atomically:YES];
+    if (is_save_success == true)
+    {
+        [(UIButton *)sender setEnabled:NO];
+    }
+}
+-(void)array_order_save_not_success
+{
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示信息" message:@"用户输入不完整，订餐失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [alert show];
+}
 //设置了一个选人按钮寄主。
 -(void)choosePeopleButtonPressed:(id)sender
 {

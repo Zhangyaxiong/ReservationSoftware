@@ -7,7 +7,7 @@
 //
 
 #import "ValueTableViewCell.h"
-#import "order_title_info.h"
+#import "ReservationOrderContent.h"
 
 @implementation ValueTableViewCell
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

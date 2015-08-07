@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "OrderViewController.h"
-#import "order_title_info.h"
+#import "ReservationOrderContent.h"
 
 @interface ViewController : UIViewController
 
